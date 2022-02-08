@@ -1,0 +1,907 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="Хранилище SchoolDBModel" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Circles">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CircTypeID" Type="int" Nullable="false" />
+          <Property Name="TeacheID" Type="int" Nullable="false" />
+          <Property Name="ClassID" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Class">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Letter" Type="nvarchar" MaxLength="5" Nullable="false" />
+          <Property Name="ClassNumber" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Competition">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CompName" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Location" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Nominations">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CompetitionID" Type="int" Nullable="false" />
+          <Property Name="ProjectName" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="NominationName" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="PaintingCompetition">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="WorkID" Type="int" Nullable="false" />
+          <Property Name="NominationID" Type="int" />
+          <Property Name="Result" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="TeacherID" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Schedule">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CircleID" Type="int" />
+          <Property Name="Cabinet" Type="nvarchar" MaxLength="10" Nullable="false" />
+          <Property Name="WeekDay" Type="nvarchar" MaxLength="30" Nullable="false" />
+          <Property Name="StartTime" Type="nvarchar" MaxLength="20" />
+          <Property Name="FinishTime" Type="nvarchar" MaxLength="20" />
+          <Property Name="HalfYear" Type="int" Nullable="false" />
+          <Property Name="AcademicYear" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="ClassID" Type="int" />
+        </EntityType>
+        <EntityType Name="Students">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Surname" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Patronymic" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="ClassID" Type="int" />
+        </EntityType>
+        <EntityType Name="StudentsWorks">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="StudentID" Type="int" />
+          <Property Name="WorkName" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Description" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Image" Type="nvarchar(max)" Nullable="false" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="principal_id" Type="int" Nullable="false" />
+          <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="version" Type="int" />
+          <Property Name="definition" Type="varbinary(max)" />
+        </EntityType>
+        <EntityType Name="Teachers">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Surname" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Patronymic" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="TypeOfCircle">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Title" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Visits">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="TableID" Type="int" />
+          <Property Name="StudentID" Type="int" Nullable="false" />
+          <Property Name="Date" Type="date" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_Circles_Class">
+          <End Role="Class" Type="Self.Class" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Circles" Type="Self.Circles" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Class">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Circles">
+              <PropertyRef Name="ClassID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Circles_Teachers">
+          <End Role="Teachers" Type="Self.Teachers" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Circles" Type="Self.Circles" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Teachers">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Circles">
+              <PropertyRef Name="TeacheID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Circles_TypeOfCircle">
+          <End Role="TypeOfCircle" Type="Self.TypeOfCircle" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Circles" Type="Self.Circles" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TypeOfCircle">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Circles">
+              <PropertyRef Name="CircTypeID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Nominations_Competition">
+          <End Role="Competition" Type="Self.Competition" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Nominations" Type="Self.Nominations" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Competition">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Nominations">
+              <PropertyRef Name="CompetitionID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PaintingCompetition_Nominations">
+          <End Role="Nominations" Type="Self.Nominations" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="PaintingCompetition" Type="Self.PaintingCompetition" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Nominations">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="PaintingCompetition">
+              <PropertyRef Name="NominationID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PaintingCompetition_StudentsWorks">
+          <End Role="StudentsWorks" Type="Self.StudentsWorks" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="PaintingCompetition" Type="Self.PaintingCompetition" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="StudentsWorks">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="PaintingCompetition">
+              <PropertyRef Name="WorkID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PaintingCompetition_Teachers">
+          <End Role="Teachers" Type="Self.Teachers" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="PaintingCompetition" Type="Self.PaintingCompetition" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Teachers">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="PaintingCompetition">
+              <PropertyRef Name="TeacherID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Schedule_Circles">
+          <End Role="Circles" Type="Self.Circles" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Schedule" Type="Self.Schedule" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Circles">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Schedule">
+              <PropertyRef Name="CircleID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Schedule_Class">
+          <End Role="Class" Type="Self.Class" Multiplicity="0..1" />
+          <End Role="Schedule" Type="Self.Schedule" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Class">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Schedule">
+              <PropertyRef Name="ClassID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Students_Class">
+          <End Role="Class" Type="Self.Class" Multiplicity="0..1" />
+          <End Role="Students" Type="Self.Students" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Class">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Students">
+              <PropertyRef Name="ClassID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_StudentsWorks_Students">
+          <End Role="Students" Type="Self.Students" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="StudentsWorks" Type="Self.StudentsWorks" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Students">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="StudentsWorks">
+              <PropertyRef Name="StudentID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Visits_Schedule">
+          <End Role="Schedule" Type="Self.Schedule" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Visits" Type="Self.Visits" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Schedule">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Visits">
+              <PropertyRef Name="TableID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Visits_Students">
+          <End Role="Students" Type="Self.Students" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Visits" Type="Self.Visits" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Students">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Visits">
+              <PropertyRef Name="StudentID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="Хранилище SchoolDBModelContainer">
+          <EntitySet Name="Circles" EntityType="Self.Circles" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Class" EntityType="Self.Class" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Competition" EntityType="Self.Competition" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Nominations" EntityType="Self.Nominations" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PaintingCompetition" EntityType="Self.PaintingCompetition" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Schedule" EntityType="Self.Schedule" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Students" EntityType="Self.Students" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="StudentsWorks" EntityType="Self.StudentsWorks" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Teachers" EntityType="Self.Teachers" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TypeOfCircle" EntityType="Self.TypeOfCircle" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Visits" EntityType="Self.Visits" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_Circles_Class" Association="Self.FK_Circles_Class">
+            <End Role="Class" EntitySet="Class" />
+            <End Role="Circles" EntitySet="Circles" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Circles_Teachers" Association="Self.FK_Circles_Teachers">
+            <End Role="Teachers" EntitySet="Teachers" />
+            <End Role="Circles" EntitySet="Circles" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Circles_TypeOfCircle" Association="Self.FK_Circles_TypeOfCircle">
+            <End Role="TypeOfCircle" EntitySet="TypeOfCircle" />
+            <End Role="Circles" EntitySet="Circles" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Nominations_Competition" Association="Self.FK_Nominations_Competition">
+            <End Role="Competition" EntitySet="Competition" />
+            <End Role="Nominations" EntitySet="Nominations" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PaintingCompetition_Nominations" Association="Self.FK_PaintingCompetition_Nominations">
+            <End Role="Nominations" EntitySet="Nominations" />
+            <End Role="PaintingCompetition" EntitySet="PaintingCompetition" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PaintingCompetition_StudentsWorks" Association="Self.FK_PaintingCompetition_StudentsWorks">
+            <End Role="StudentsWorks" EntitySet="StudentsWorks" />
+            <End Role="PaintingCompetition" EntitySet="PaintingCompetition" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PaintingCompetition_Teachers" Association="Self.FK_PaintingCompetition_Teachers">
+            <End Role="Teachers" EntitySet="Teachers" />
+            <End Role="PaintingCompetition" EntitySet="PaintingCompetition" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Schedule_Circles" Association="Self.FK_Schedule_Circles">
+            <End Role="Circles" EntitySet="Circles" />
+            <End Role="Schedule" EntitySet="Schedule" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Schedule_Class" Association="Self.FK_Schedule_Class">
+            <End Role="Class" EntitySet="Class" />
+            <End Role="Schedule" EntitySet="Schedule" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Students_Class" Association="Self.FK_Students_Class">
+            <End Role="Class" EntitySet="Class" />
+            <End Role="Students" EntitySet="Students" />
+          </AssociationSet>
+          <AssociationSet Name="FK_StudentsWorks_Students" Association="Self.FK_StudentsWorks_Students">
+            <End Role="Students" EntitySet="Students" />
+            <End Role="StudentsWorks" EntitySet="StudentsWorks" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Visits_Schedule" Association="Self.FK_Visits_Schedule">
+            <End Role="Schedule" EntitySet="Schedule" />
+            <End Role="Visits" EntitySet="Visits" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Visits_Students" Association="Self.FK_Visits_Students">
+            <End Role="Students" EntitySet="Students" />
+            <End Role="Visits" EntitySet="Visits" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="SchoolDBModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Circles">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CircTypeID" Type="Int32" Nullable="false" />
+          <Property Name="TeacheID" Type="Int32" Nullable="false" />
+          <Property Name="ClassID" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Class" Relationship="Self.FK_Circles_Class" FromRole="Circles" ToRole="Class" />
+          <NavigationProperty Name="Teachers" Relationship="Self.FK_Circles_Teachers" FromRole="Circles" ToRole="Teachers" />
+          <NavigationProperty Name="TypeOfCircle" Relationship="Self.FK_Circles_TypeOfCircle" FromRole="Circles" ToRole="TypeOfCircle" />
+          <NavigationProperty Name="Schedule" Relationship="Self.FK_Schedule_Circles" FromRole="Circles" ToRole="Schedule" />
+        </EntityType>
+        <EntityType Name="Class">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Letter" Type="String" MaxLength="5" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ClassNumber" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Circles" Relationship="Self.FK_Circles_Class" FromRole="Class" ToRole="Circles" />
+          <NavigationProperty Name="Schedule" Relationship="Self.FK_Schedule_Class" FromRole="Class" ToRole="Schedule" />
+          <NavigationProperty Name="Students" Relationship="Self.FK_Students_Class" FromRole="Class" ToRole="Students" />
+        </EntityType>
+        <EntityType Name="Competition">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CompName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Location" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Nominations" Relationship="Self.FK_Nominations_Competition" FromRole="Competition" ToRole="Nominations" />
+        </EntityType>
+        <EntityType Name="Nominations">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CompetitionID" Type="Int32" Nullable="false" />
+          <Property Name="ProjectName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="NominationName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Competition" Relationship="Self.FK_Nominations_Competition" FromRole="Nominations" ToRole="Competition" />
+          <NavigationProperty Name="PaintingCompetition" Relationship="Self.FK_PaintingCompetition_Nominations" FromRole="Nominations" ToRole="PaintingCompetition" />
+        </EntityType>
+        <EntityType Name="PaintingCompetition">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="WorkID" Type="Int32" Nullable="false" />
+          <Property Name="NominationID" Type="Int32" />
+          <Property Name="Result" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="TeacherID" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Nominations" Relationship="Self.FK_PaintingCompetition_Nominations" FromRole="PaintingCompetition" ToRole="Nominations" />
+          <NavigationProperty Name="StudentsWorks" Relationship="Self.FK_PaintingCompetition_StudentsWorks" FromRole="PaintingCompetition" ToRole="StudentsWorks" />
+          <NavigationProperty Name="Teachers" Relationship="Self.FK_PaintingCompetition_Teachers" FromRole="PaintingCompetition" ToRole="Teachers" />
+        </EntityType>
+        <EntityType Name="Schedule">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CircleID" Type="Int32" />
+          <Property Name="Cabinet" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="WeekDay" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="StartTime" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="FinishTime" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="HalfYear" Type="Int32" Nullable="false" />
+          <Property Name="AcademicYear" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ClassID" Type="Int32" />
+          <NavigationProperty Name="Circles" Relationship="Self.FK_Schedule_Circles" FromRole="Schedule" ToRole="Circles" />
+          <NavigationProperty Name="Class" Relationship="Self.FK_Schedule_Class" FromRole="Schedule" ToRole="Class" />
+          <NavigationProperty Name="Visits" Relationship="Self.FK_Visits_Schedule" FromRole="Schedule" ToRole="Visits" />
+        </EntityType>
+        <EntityType Name="Students">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Surname" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Patronymic" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ClassID" Type="Int32" />
+          <NavigationProperty Name="Class" Relationship="Self.FK_Students_Class" FromRole="Students" ToRole="Class" />
+          <NavigationProperty Name="StudentsWorks" Relationship="Self.FK_StudentsWorks_Students" FromRole="Students" ToRole="StudentsWorks" />
+          <NavigationProperty Name="Visits" Relationship="Self.FK_Visits_Students" FromRole="Students" ToRole="Visits" />
+        </EntityType>
+        <EntityType Name="StudentsWorks">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="StudentID" Type="Int32" />
+          <Property Name="WorkName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Image" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="PaintingCompetition" Relationship="Self.FK_PaintingCompetition_StudentsWorks" FromRole="StudentsWorks" ToRole="PaintingCompetition" />
+          <NavigationProperty Name="Students" Relationship="Self.FK_StudentsWorks_Students" FromRole="StudentsWorks" ToRole="Students" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="principal_id" Type="Int32" Nullable="false" />
+          <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="version" Type="Int32" />
+          <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="Teachers">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Surname" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Patronymic" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Circles" Relationship="Self.FK_Circles_Teachers" FromRole="Teachers" ToRole="Circles" />
+          <NavigationProperty Name="PaintingCompetition" Relationship="Self.FK_PaintingCompetition_Teachers" FromRole="Teachers" ToRole="PaintingCompetition" />
+        </EntityType>
+        <EntityType Name="TypeOfCircle">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Title" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Circles" Relationship="Self.FK_Circles_TypeOfCircle" FromRole="TypeOfCircle" ToRole="Circles" />
+        </EntityType>
+        <EntityType Name="Visits">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="TableID" Type="Int32" />
+          <Property Name="StudentID" Type="Int32" Nullable="false" />
+          <Property Name="Date" Type="DateTime" Nullable="false" Precision="0" />
+          <NavigationProperty Name="Schedule" Relationship="Self.FK_Visits_Schedule" FromRole="Visits" ToRole="Schedule" />
+          <NavigationProperty Name="Students" Relationship="Self.FK_Visits_Students" FromRole="Visits" ToRole="Students" />
+        </EntityType>
+        <Association Name="FK_Circles_Class">
+          <End Role="Class" Type="Self.Class" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Circles" Type="Self.Circles" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Class">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Circles">
+              <PropertyRef Name="ClassID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Circles_Teachers">
+          <End Role="Teachers" Type="Self.Teachers" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Circles" Type="Self.Circles" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Teachers">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Circles">
+              <PropertyRef Name="TeacheID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Circles_TypeOfCircle">
+          <End Role="TypeOfCircle" Type="Self.TypeOfCircle" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Circles" Type="Self.Circles" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TypeOfCircle">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Circles">
+              <PropertyRef Name="CircTypeID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Schedule_Circles">
+          <End Role="Circles" Type="Self.Circles" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Schedule" Type="Self.Schedule" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Circles">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Schedule">
+              <PropertyRef Name="CircleID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Schedule_Class">
+          <End Role="Class" Type="Self.Class" Multiplicity="0..1" />
+          <End Role="Schedule" Type="Self.Schedule" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Class">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Schedule">
+              <PropertyRef Name="ClassID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Students_Class">
+          <End Role="Class" Type="Self.Class" Multiplicity="0..1" />
+          <End Role="Students" Type="Self.Students" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Class">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Students">
+              <PropertyRef Name="ClassID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Nominations_Competition">
+          <End Role="Competition" Type="Self.Competition" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Nominations" Type="Self.Nominations" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Competition">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Nominations">
+              <PropertyRef Name="CompetitionID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PaintingCompetition_Nominations">
+          <End Role="Nominations" Type="Self.Nominations" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="PaintingCompetition" Type="Self.PaintingCompetition" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Nominations">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="PaintingCompetition">
+              <PropertyRef Name="NominationID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PaintingCompetition_StudentsWorks">
+          <End Role="StudentsWorks" Type="Self.StudentsWorks" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="PaintingCompetition" Type="Self.PaintingCompetition" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="StudentsWorks">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="PaintingCompetition">
+              <PropertyRef Name="WorkID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PaintingCompetition_Teachers">
+          <End Role="Teachers" Type="Self.Teachers" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="PaintingCompetition" Type="Self.PaintingCompetition" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Teachers">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="PaintingCompetition">
+              <PropertyRef Name="TeacherID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Visits_Schedule">
+          <End Role="Schedule" Type="Self.Schedule" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Visits" Type="Self.Visits" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Schedule">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Visits">
+              <PropertyRef Name="TableID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_StudentsWorks_Students">
+          <End Role="Students" Type="Self.Students" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="StudentsWorks" Type="Self.StudentsWorks" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Students">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="StudentsWorks">
+              <PropertyRef Name="StudentID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Visits_Students">
+          <End Role="Students" Type="Self.Students" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Visits" Type="Self.Visits" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Students">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Visits">
+              <PropertyRef Name="StudentID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="SchoolDBEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Circles" EntityType="Self.Circles" />
+          <EntitySet Name="Class" EntityType="Self.Class" />
+          <EntitySet Name="Competition" EntityType="Self.Competition" />
+          <EntitySet Name="Nominations" EntityType="Self.Nominations" />
+          <EntitySet Name="PaintingCompetition" EntityType="Self.PaintingCompetition" />
+          <EntitySet Name="Schedule" EntityType="Self.Schedule" />
+          <EntitySet Name="Students" EntityType="Self.Students" />
+          <EntitySet Name="StudentsWorks" EntityType="Self.StudentsWorks" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" />
+          <EntitySet Name="Teachers" EntityType="Self.Teachers" />
+          <EntitySet Name="TypeOfCircle" EntityType="Self.TypeOfCircle" />
+          <EntitySet Name="Visits" EntityType="Self.Visits" />
+          <AssociationSet Name="FK_Circles_Class" Association="Self.FK_Circles_Class">
+            <End Role="Class" EntitySet="Class" />
+            <End Role="Circles" EntitySet="Circles" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Circles_Teachers" Association="Self.FK_Circles_Teachers">
+            <End Role="Teachers" EntitySet="Teachers" />
+            <End Role="Circles" EntitySet="Circles" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Circles_TypeOfCircle" Association="Self.FK_Circles_TypeOfCircle">
+            <End Role="TypeOfCircle" EntitySet="TypeOfCircle" />
+            <End Role="Circles" EntitySet="Circles" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Schedule_Circles" Association="Self.FK_Schedule_Circles">
+            <End Role="Circles" EntitySet="Circles" />
+            <End Role="Schedule" EntitySet="Schedule" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Schedule_Class" Association="Self.FK_Schedule_Class">
+            <End Role="Class" EntitySet="Class" />
+            <End Role="Schedule" EntitySet="Schedule" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Students_Class" Association="Self.FK_Students_Class">
+            <End Role="Class" EntitySet="Class" />
+            <End Role="Students" EntitySet="Students" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Nominations_Competition" Association="Self.FK_Nominations_Competition">
+            <End Role="Competition" EntitySet="Competition" />
+            <End Role="Nominations" EntitySet="Nominations" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PaintingCompetition_Nominations" Association="Self.FK_PaintingCompetition_Nominations">
+            <End Role="Nominations" EntitySet="Nominations" />
+            <End Role="PaintingCompetition" EntitySet="PaintingCompetition" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PaintingCompetition_StudentsWorks" Association="Self.FK_PaintingCompetition_StudentsWorks">
+            <End Role="StudentsWorks" EntitySet="StudentsWorks" />
+            <End Role="PaintingCompetition" EntitySet="PaintingCompetition" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PaintingCompetition_Teachers" Association="Self.FK_PaintingCompetition_Teachers">
+            <End Role="Teachers" EntitySet="Teachers" />
+            <End Role="PaintingCompetition" EntitySet="PaintingCompetition" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Visits_Schedule" Association="Self.FK_Visits_Schedule">
+            <End Role="Schedule" EntitySet="Schedule" />
+            <End Role="Visits" EntitySet="Visits" />
+          </AssociationSet>
+          <AssociationSet Name="FK_StudentsWorks_Students" Association="Self.FK_StudentsWorks_Students">
+            <End Role="Students" EntitySet="Students" />
+            <End Role="StudentsWorks" EntitySet="StudentsWorks" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Visits_Students" Association="Self.FK_Visits_Students">
+            <End Role="Students" EntitySet="Students" />
+            <End Role="Visits" EntitySet="Visits" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="Хранилище SchoolDBModelContainer" CdmEntityContainer="SchoolDBEntities">
+          <EntitySetMapping Name="Circles">
+            <EntityTypeMapping TypeName="SchoolDBModel.Circles">
+              <MappingFragment StoreEntitySet="Circles">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="CircTypeID" ColumnName="CircTypeID" />
+                <ScalarProperty Name="TeacheID" ColumnName="TeacheID" />
+                <ScalarProperty Name="ClassID" ColumnName="ClassID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Class">
+            <EntityTypeMapping TypeName="SchoolDBModel.Class">
+              <MappingFragment StoreEntitySet="Class">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Letter" ColumnName="Letter" />
+                <ScalarProperty Name="ClassNumber" ColumnName="ClassNumber" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Competition">
+            <EntityTypeMapping TypeName="SchoolDBModel.Competition">
+              <MappingFragment StoreEntitySet="Competition">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="CompName" ColumnName="CompName" />
+                <ScalarProperty Name="Location" ColumnName="Location" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Nominations">
+            <EntityTypeMapping TypeName="SchoolDBModel.Nominations">
+              <MappingFragment StoreEntitySet="Nominations">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="CompetitionID" ColumnName="CompetitionID" />
+                <ScalarProperty Name="ProjectName" ColumnName="ProjectName" />
+                <ScalarProperty Name="NominationName" ColumnName="NominationName" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PaintingCompetition">
+            <EntityTypeMapping TypeName="SchoolDBModel.PaintingCompetition">
+              <MappingFragment StoreEntitySet="PaintingCompetition">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="WorkID" ColumnName="WorkID" />
+                <ScalarProperty Name="NominationID" ColumnName="NominationID" />
+                <ScalarProperty Name="Result" ColumnName="Result" />
+                <ScalarProperty Name="TeacherID" ColumnName="TeacherID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Schedule">
+            <EntityTypeMapping TypeName="SchoolDBModel.Schedule">
+              <MappingFragment StoreEntitySet="Schedule">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="CircleID" ColumnName="CircleID" />
+                <ScalarProperty Name="Cabinet" ColumnName="Cabinet" />
+                <ScalarProperty Name="WeekDay" ColumnName="WeekDay" />
+                <ScalarProperty Name="StartTime" ColumnName="StartTime" />
+                <ScalarProperty Name="FinishTime" ColumnName="FinishTime" />
+                <ScalarProperty Name="HalfYear" ColumnName="HalfYear" />
+                <ScalarProperty Name="AcademicYear" ColumnName="AcademicYear" />
+                <ScalarProperty Name="ClassID" ColumnName="ClassID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Students">
+            <EntityTypeMapping TypeName="SchoolDBModel.Students">
+              <MappingFragment StoreEntitySet="Students">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Surname" ColumnName="Surname" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Patronymic" ColumnName="Patronymic" />
+                <ScalarProperty Name="ClassID" ColumnName="ClassID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="StudentsWorks">
+            <EntityTypeMapping TypeName="SchoolDBModel.StudentsWorks">
+              <MappingFragment StoreEntitySet="StudentsWorks">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="StudentID" ColumnName="StudentID" />
+                <ScalarProperty Name="WorkName" ColumnName="WorkName" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Image" ColumnName="Image" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="sysdiagrams">
+            <EntityTypeMapping TypeName="SchoolDBModel.sysdiagrams">
+              <MappingFragment StoreEntitySet="sysdiagrams">
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+                <ScalarProperty Name="version" ColumnName="version" />
+                <ScalarProperty Name="definition" ColumnName="definition" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Teachers">
+            <EntityTypeMapping TypeName="SchoolDBModel.Teachers">
+              <MappingFragment StoreEntitySet="Teachers">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Surname" ColumnName="Surname" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Patronymic" ColumnName="Patronymic" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TypeOfCircle">
+            <EntityTypeMapping TypeName="SchoolDBModel.TypeOfCircle">
+              <MappingFragment StoreEntitySet="TypeOfCircle">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Visits">
+            <EntityTypeMapping TypeName="SchoolDBModel.Visits">
+              <MappingFragment StoreEntitySet="Visits">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="TableID" ColumnName="TableID" />
+                <ScalarProperty Name="StudentID" ColumnName="StudentID" />
+                <ScalarProperty Name="Date" ColumnName="Date" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Нет" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
