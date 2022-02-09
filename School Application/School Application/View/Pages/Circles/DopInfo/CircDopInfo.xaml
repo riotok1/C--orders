@@ -1,0 +1,64 @@
+﻿<Page x:Class="School_Application.View.Pages.Circles.DopInfo.CircDopInfo"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:School_Application.View.Pages.Circles.DopInfo"
+      mc:Ignorable="d" Loaded="Page_Loaded"
+      d:DesignHeight="600" d:DesignWidth="1000"
+      Title="CircDopInfo">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="0.2*"/>
+        </Grid.RowDefinitions>
+
+        <Grid Grid.Row="0">
+            <ListView x:Name="listDataView">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <StackPanel Orientation="Vertical"
+                                        VerticalAlignment="Center">
+                            <Label Content="{Binding Circles.TypeOfCircle.Title}"
+                                   ContentStringFormat="Кружок: {0}"
+                                   FontSize="15"
+                                   FontWeight="Bold"/>
+                            <Label Content="{Binding Cabinet}"
+                                   ContentStringFormat="Кабинеты: {0}"
+                                   FontSize="14"/>
+                            <Label Content="{Binding WeekDay}"
+                                   ContentStringFormat="День проведения: {0}"
+                                   FontSize="14"/>
+                            <Label Content="{Binding StartTime}"
+                                   ContentStringFormat="Время начала: {0}"
+                                   FontSize="14"/>
+                            <Label Content="{Binding FinishTime}"
+                                   ContentStringFormat="Время окончания: {0}"
+                                   FontSize="14"/>
+                            <Label Content="{Binding HalfYear}"
+                                   ContentStringFormat="Полугодие: {0}"
+                                   FontSize="14"/>
+                            <Label Content="{Binding AcademicYear}"
+                                   ContentStringFormat="Учебный год: {0}"
+                                   FontSize="14"/>
+                            <Label Content="{Binding Class.fullClass}"
+                                   ContentStringFormat="Класс: {0}"
+                                   FontSize="14"/>
+                        </StackPanel>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </Grid>
+
+        <Grid Grid.Row="1">
+            <StackPanel VerticalAlignment="Center"
+                        HorizontalAlignment="Center">
+                <Button x:Name="backBtn"
+                        Content="Назад"
+                        Width="120"
+                        Height="35" Click="backBtn_Click"/>
+            </StackPanel>
+        </Grid>
+    </Grid>
+</Page>

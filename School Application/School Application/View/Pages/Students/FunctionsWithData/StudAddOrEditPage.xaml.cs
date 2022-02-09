@@ -22,10 +22,12 @@ namespace School_Application.View.Pages.Students.FunctionsWithData
     public partial class StudAddOrEditPage : Page
     {
         public DB.Students cStudents { get; set; }
-        public StudAddOrEditPage(DB.Students sStudents)
+        public DB.Class cClass { get; set; }
+        public StudAddOrEditPage(DB.Students sStudents, DB.Class sClass)
         {
             InitializeComponent();
             cStudents = sStudents;  
+            cClass = sClass;
             this.DataContext = this;
         }
 
@@ -49,14 +51,16 @@ namespace School_Application.View.Pages.Students.FunctionsWithData
 
         private void addOrEditBtn_Click(object sender, RoutedEventArgs e)
         {
-            if (cStudents != null)
+            if (cStudents.ID == 0)
             {
+                ConnectClass.db.Class.Add(cClass);
+                cStudents.ClassID = ConnectClass.db.Class.Max(item => item.ID)+1;
                 ConnectClass.db.Students.Add(cStudents);
                 ConnectClass.db.SaveChanges();
                 MessageBox.Show("Данные были успешно добавлены!");
-                NavigationService.GoBack();
+                NavigationService.GoBack(); 
             }
-            else if (cStudents == null)
+            else if (cStudents.ID != 0)
             {
                 ConnectClass.db.SaveChanges();
                 MessageBox.Show("Данные были успешно изменены!");

@@ -50,7 +50,7 @@
                     <TextBlock Text="Класс:"
                                FontSize="15"
                                Width="100"/>
-                    <TextBox Text="{Binding cStudents.Class.ClassNumber}"
+                    <TextBox Text="{Binding cClass.ClassNumber}"
                              FontSize="15"
                              Width="200"/>
                 </StackPanel>
@@ -58,7 +58,7 @@
                     <TextBlock Text="Буква:"
                                FontSize="15"
                                Width="100"/>
-                    <TextBox Text="{Binding cStudents.Class.Letter}"
+                    <TextBox Text="{Binding cClass.Letter}"
                              FontSize="15"
                              Width="200"/>
                 </StackPanel>

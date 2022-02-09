@@ -51,7 +51,7 @@ namespace School_Application.View.Pages.Students
 
         private void addBtn_Click(object sender, RoutedEventArgs e)
         {
-            NavigationService.Navigate(new StudAddOrEditPage(new DB.Students()));
+            NavigationService.Navigate(new StudAddOrEditPage(new DB.Students(), new DB.Class()));
         }
 
         private void editBtn_Click(object sender, RoutedEventArgs e)
@@ -60,7 +60,7 @@ namespace School_Application.View.Pages.Students
             {
                 if (dataView.SelectedItem != null)
                 {
-                    NavigationService.Navigate(new StudAddOrEditPage(dataView.SelectedItem as DB.Students));
+                    NavigationService.Navigate(new StudAddOrEditPage(dataView.SelectedItem as DB.Students, (dataView.SelectedItem as DB.Students).Class));
                 }
                 else
                 {

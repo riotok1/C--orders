@@ -1,10 +1,13 @@
 ﻿
 FD:\Orders\School Application\School Application\App.xaml;;
-FD:\Orders\School Application\School Application\View\Windows\MainWindow.xaml;;
-FD:\Orders\School Application\School Application\View\Pages\MainViewPage.xaml;;
-FD:\Orders\School Application\School Application\View\Pages\Students\StudentsMainPage.xaml;;
+FD:\Orders\School Application\School Application\View\Pages\Circles\CirclesMainPage.xaml;;
+FD:\Orders\School Application\School Application\View\Pages\Circles\DopInfo\CircDopInfo.xaml;;
+FD:\Orders\School Application\School Application\View\Pages\Circles\DopInfo\FunctionsWithData\AddOrEditPage.xaml;;
 FD:\Orders\School Application\School Application\View\Pages\Students\FunctionsWithData\StudAddOrEditPage.xaml;;
+FD:\Orders\School Application\School Application\View\Pages\Students\StudentsMainPage.xaml;;
 FD:\Orders\School Application\School Application\View\Pages\Teachers\FunctionsWithData\TeachAddOrEditPage.xaml;;
 FD:\Orders\School Application\School Application\View\Pages\Teachers\TeachersMainPage.xaml;;
-FD:\Orders\School Application\School Application\View\Pages\Circles\CirclesMainPage.xaml;;
+FD:\Orders\School Application\School Application\View\Windows\MainWindow.xaml;;
+FD:\Orders\School Application\School Application\View\Pages\MainViewPage.xaml;;
+FD:\Orders\School Application\School Application\View\Pages\Circles\DopInfo\FunctionsWithData\CircAddDataPage.xaml;;
 

@@ -1,0 +1,151 @@
+﻿<Page x:Class="School_Application.View.Pages.Circles.DopInfo.FunctionsWithData.AddOrEditPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:School_Application.View.Pages.Circles.DopInfo.FunctionsWithData"
+      mc:Ignorable="d" Loaded="Page_Loaded"
+      d:DesignHeight="600" d:DesignWidth="1000"
+      Title="AddOrEditPage">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="0.2*"/>
+        </Grid.RowDefinitions>
+
+        <Grid Grid.Row="0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+
+            <Grid Grid.Column="0">
+                <StackPanel VerticalAlignment="Center"
+                            HorizontalAlignment="Center"
+                            Orientation="Vertical">
+                    <StackPanel Orientation="Horizontal"
+                                Margin="0,0,0,20">
+                        <TextBlock Text="Кружок:"
+                                   Width="150"/>
+                        <ComboBox x:Name="circleCmb"
+                                  Width="200"/>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal"
+                                Margin="0,0,0,20">
+                        <TextBlock Text="Кабинеты:"
+                                   Width="150"/>
+                        <TextBox x:Name="cabinetTxb"
+                                 Width="200"/>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal"
+                                Margin="0,0,0,20">
+                        <TextBlock Text="День проведения:"
+                                   Width="150"/>
+                        <TextBox x:Name="weekDayTxb"
+                                 Width="200"/>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal"
+                                Margin="0,0,0,20">
+                        <TextBlock Text="Время начала:"
+                                   Width="150"/>
+                        <TextBox x:Name="startTimeTxb"
+                                 Width="200"/>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Text="Время окончания:"
+                                   Width="150"/>
+                        <TextBox x:Name="finishTimeTxb"
+                                 Width="200"/>
+                    </StackPanel>
+                </StackPanel>
+            </Grid>
+
+            <Grid Grid.Column="1">
+                <StackPanel VerticalAlignment="Center"
+                            HorizontalAlignment="Center"
+                            Orientation="Vertical">
+                    <StackPanel Orientation="Horizontal"
+                                Margin="0,0,0,20">
+                        <TextBlock Text="Полугодие:"
+                                   Width="150"/>
+                        <TextBox x:Name="halfYearTxb"
+                                 Width="200"/>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal"
+                                Margin="0,0,0,20">
+                        <TextBlock Text="Учебный год:"
+                                   Width="150"/>
+                        <TextBox x:Name="yearTxb"
+                                 Width="200"/>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal"
+                                Margin="0,0,0,20">
+                        <TextBlock Text="Номер класса:"
+                                   Width="150"/>
+                        <TextBox x:Name="classNumberTxb"
+                                 Width="200"/>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal"
+                                Margin="0,0,0,20">
+                        <TextBlock Text="Буква класса:"
+                                   Width="150"/>
+                        <TextBox x:Name="classLetterTxb"
+                                 Width="200"/>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Text="Преподаватель:"
+                                   Width="150"/>
+                        <ComboBox x:Name="teacherCmb"
+                                  DisplayMemberPath="fullName"
+                                  Width="200"/>
+                    </StackPanel>
+                    <!--<StackPanel Orientation="Horizontal">
+                        <TextBlock Text="Преподаватель:"
+                                   FontWeight="Bold"
+                                   Width="120"/>
+                        <StackPanel VerticalAlignment="Center"
+                                    Orientation="Vertical">
+                            <StackPanel Orientation="Horizontal"
+                                        Margin="0,0,0,20">
+                                <TextBlock Text="Фамилия:"
+                                           Width="80"/>
+                                <TextBox x:Name="surnameTxb"
+                                         Width="150"/>
+                            </StackPanel>
+                            <StackPanel Orientation="Horizontal"
+                                        Margin="0,0,0,20">
+                                <TextBlock Text="Имя:"
+                                           Width="80"/>
+                                <TextBox x:Name="nameTxb"
+                                         Width="150"/>
+                            </StackPanel>
+                            <StackPanel Orientation="Horizontal">
+                                <TextBlock Text="Отчество:"
+                                           Width="80"/>
+                                <TextBox x:Name="patronymicTxb"
+                                         Width="150"/>
+                            </StackPanel>
+                        </StackPanel>
+                    </StackPanel>-->
+                </StackPanel>
+            </Grid>
+        </Grid>
+
+        <Grid Grid.Row="1">
+            <StackPanel VerticalAlignment="Center"
+                        HorizontalAlignment="Center"
+                        Orientation="Horizontal">
+                <Button x:Name="backBtn"
+                        Content="Назад"
+                        Width="120"
+                        Height="35"
+                        Margin="0,0,20,0" Click="backBtn_Click"/>
+                <Button x:Name="addOrEditBtn"
+                        Content="Изменить"
+                        Width="120"
+                        Height="35" Click="addOrEditBtn_Click"/>
+            </StackPanel>
+        </Grid>
+    </Grid>
+</Page>

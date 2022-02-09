@@ -79,6 +79,7 @@
     <Compile Include="DB\Class.cs">
       <DependentUpon>FirstDB.tt</DependentUpon>
     </Compile>
+    <Compile Include="DB\ClassPartial.cs" />
     <Compile Include="DB\Competition.cs">
       <DependentUpon>FirstDB.tt</DependentUpon>
     </Compile>
@@ -128,10 +129,31 @@
     <Compile Include="View\Pages\Circles\CirclesMainPage.xaml.cs">
       <DependentUpon>CirclesMainPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="View\Pages\Circles\DopInfo\CircDopInfo.xaml.cs">
+      <DependentUpon>CircDopInfo.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Pages\Circles\DopInfo\FunctionsWithData\AddOrEditPage.xaml.cs">
+      <DependentUpon>AddOrEditPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Pages\Circles\DopInfo\FunctionsWithData\CircAddDataPage.xaml.cs">
+      <DependentUpon>CircAddDataPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\Pages\MainViewPage.xaml.cs">
       <DependentUpon>MainViewPage.xaml</DependentUpon>
     </Compile>
     <Page Include="View\Pages\Circles\CirclesMainPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Pages\Circles\DopInfo\CircDopInfo.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Pages\Circles\DopInfo\FunctionsWithData\AddOrEditPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Pages\Circles\DopInfo\FunctionsWithData\CircAddDataPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

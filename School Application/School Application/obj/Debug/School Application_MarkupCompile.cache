@@ -10,11 +10,11 @@ none
 false
 DEBUG;TRACE
 D:\Orders\School Application\School Application\App.xaml
-71610069900
+10853496545
 2-1483737245
-281146800312
+32614510700
 201342368411
-View\Pages\Circles\CirclesMainPage.xaml;View\Pages\Students\FunctionsWithData\StudAddOrEditPage.xaml;View\Pages\Students\StudentsMainPage.xaml;View\Pages\Teachers\FunctionsWithData\TeachAddOrEditPage.xaml;View\Pages\Teachers\TeachersMainPage.xaml;View\Windows\MainWindow.xaml;View\Pages\MainViewPage.xaml;
+View\Pages\Circles\CirclesMainPage.xaml;View\Pages\Circles\DopInfo\CircDopInfo.xaml;View\Pages\Circles\DopInfo\FunctionsWithData\AddOrEditPage.xaml;View\Pages\Circles\DopInfo\FunctionsWithData\CircAddDataPage.xaml;View\Pages\Students\FunctionsWithData\StudAddOrEditPage.xaml;View\Pages\Students\StudentsMainPage.xaml;View\Pages\Teachers\FunctionsWithData\TeachAddOrEditPage.xaml;View\Pages\Teachers\TeachersMainPage.xaml;View\Windows\MainWindow.xaml;View\Pages\MainViewPage.xaml;
 
 False
 

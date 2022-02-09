@@ -38,31 +38,66 @@
                 <StackPanel VerticalAlignment="Center"
                             HorizontalAlignment="Center">
                     <Button x:Name="visitsBtn"
-                            Content="Посещаемость"
+                            Content="Подробнее"
                             Width="160"
-                            Height="40"/>
+                            Height="40" Click="visitsBtn_Click"/>
                 </StackPanel>
             </Grid>
         </Grid>
 
         <Grid Grid.Row="1">
-            <ListView x:Name="listDataView">
-                <ListView.ItemTemplate>
-                    <DataTemplate>
-                        <StackPanel VerticalAlignment="Center"
-                                    Orientation="Vertical">
-                            <Label Content="{Binding Circles.TypeOfCircle.Title}"
-                                   ContentStringFormat="Тип кружка: {0}"/>
-                            <Label Content="{Binding Circles.Teachers.fullName}"
-                                   ContentStringFormat="Преподаватель: {0}"/>
-                        </StackPanel>
-                    </DataTemplate>
-                </ListView.ItemTemplate>
-            </ListView>
+            <DataGrid x:Name="dataView"
+                      AutoGenerateColumns="False"
+                      IsReadOnly="True">
+                <DataGrid.Columns>
+                    <DataGridTextColumn Header="Кружок" 
+                                        Binding="{Binding Circles.TypeOfCircle.Title}" 
+                                        Width="*"/>
+                    <DataGridTextColumn Header="Преподаватель" 
+                                        Binding="{Binding Circles.Teachers.fullName}" 
+                                        Width="*" />
+                </DataGrid.Columns>
+            </DataGrid>
         </Grid>
 
         <Grid Grid.Row="2">
-
+            <StackPanel VerticalAlignment="Center"
+                        HorizontalAlignment="Left"
+                        Margin="20,0,0,0">
+                <Button x:Name="backBtn"
+                        Content="Назад"
+                        Width="120"
+                        Height="35" Click="backBtn_Click"/>
+            </StackPanel>
+            <StackPanel VerticalAlignment="Center"
+                        HorizontalAlignment="Center"
+                        Orientation="Horizontal">
+                <Button x:Name="addBtn"
+                        Content="Добавить"
+                        Width="120"
+                        Height="35"
+                        Margin="0,0,20,0" Click="addBtn_Click"/>
+                <Button x:Name="editBtn"
+                        Content="Изменить"
+                        Width="120"
+                        Height="35"
+                        Margin="0,0,20,0" Click="editBtn_Click"/>
+                <Button x:Name="deleteBtn"
+                        Content="Удалить"
+                        Width="120"
+                        Height="35" Click="deleteBtn_Click"/>
+            </StackPanel>
+            <StackPanel VerticalAlignment="Center"
+                        HorizontalAlignment="Right"
+                        Orientation="Horizontal"
+                        Margin="0,0,20,0">
+                <TextBlock VerticalAlignment="Center"
+                           Text="Печать:"
+                           FontSize="15"
+                           Width="70"/>
+                <Button x:Name="wordBtn"
+                        Content="WORD"/>
+            </StackPanel>
         </Grid>
     </Grid>
 </Page>
