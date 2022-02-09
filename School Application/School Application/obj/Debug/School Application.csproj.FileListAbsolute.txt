@@ -16,6 +16,8 @@ D:\Orders\School Application\School Application\obj\Debug\School Application.csp
 D:\Orders\School Application\School Application\obj\Debug\View\Pages\Circles\CirclesMainPage.g.cs
 D:\Orders\School Application\School Application\obj\Debug\View\Pages\Circles\DopInfo\CircDopInfo.g.cs
 D:\Orders\School Application\School Application\obj\Debug\View\Pages\Circles\DopInfo\FunctionsWithData\AddOrEditPage.g.cs
+D:\Orders\School Application\School Application\obj\Debug\View\Pages\Circles\DopInfo\FunctionsWithData\CircAddDataPage.g.cs
+D:\Orders\School Application\School Application\obj\Debug\View\Pages\Competition\CompetitionMainPage.g.cs
 D:\Orders\School Application\School Application\obj\Debug\View\Pages\Students\FunctionsWithData\StudAddOrEditPage.g.cs
 D:\Orders\School Application\School Application\obj\Debug\View\Pages\Students\StudentsMainPage.g.cs
 D:\Orders\School Application\School Application\obj\Debug\View\Pages\Teachers\FunctionsWithData\TeachAddOrEditPage.g.cs
@@ -30,6 +32,8 @@ D:\Orders\School Application\School Application\obj\Debug\App.baml
 D:\Orders\School Application\School Application\obj\Debug\View\Pages\Circles\CirclesMainPage.baml
 D:\Orders\School Application\School Application\obj\Debug\View\Pages\Circles\DopInfo\CircDopInfo.baml
 D:\Orders\School Application\School Application\obj\Debug\View\Pages\Circles\DopInfo\FunctionsWithData\AddOrEditPage.baml
+D:\Orders\School Application\School Application\obj\Debug\View\Pages\Circles\DopInfo\FunctionsWithData\CircAddDataPage.baml
+D:\Orders\School Application\School Application\obj\Debug\View\Pages\Competition\CompetitionMainPage.baml
 D:\Orders\School Application\School Application\obj\Debug\View\Pages\Students\FunctionsWithData\StudAddOrEditPage.baml
 D:\Orders\School Application\School Application\obj\Debug\View\Pages\Students\StudentsMainPage.baml
 D:\Orders\School Application\School Application\obj\Debug\View\Pages\Teachers\FunctionsWithData\TeachAddOrEditPage.baml
@@ -43,5 +47,3 @@ D:\Orders\School Application\School Application\obj\Debug\School Application.csp
 D:\Orders\School Application\School Application\obj\Debug\School Application.csproj.CopyComplete
 D:\Orders\School Application\School Application\obj\Debug\School Application.exe
 D:\Orders\School Application\School Application\obj\Debug\School Application.pdb
-D:\Orders\School Application\School Application\obj\Debug\View\Pages\Circles\DopInfo\FunctionsWithData\CircAddDataPage.g.cs
-D:\Orders\School Application\School Application\obj\Debug\View\Pages\Circles\DopInfo\FunctionsWithData\CircAddDataPage.baml

@@ -35,9 +35,6 @@ namespace School_Application.View.Pages.Circles.DopInfo.FunctionsWithData
             yearTxb.Text = selectedItem.AcademicYear;
             classNumberTxb.Text = Convert.ToString(selectedItem.Class.ClassNumber);
             classLetterTxb.Text = selectedItem.Class.Letter;
-            //surnameTxb.Text = selectedItem.Circles.Teachers.Surname;
-            //nameTxb.Text = selectedItem.Circles.Teachers.Name;
-            //patronymicTxb.Text = selectedItem.Circles.Teachers.Patronymic;
 
             circleCmb.ItemsSource = ConnectClass.db.TypeOfCircle.Select(item => item.Title).ToList();
             circleCmb.SelectedItem = selectedItem.Circles.TypeOfCircle.Title;
@@ -58,16 +55,12 @@ namespace School_Application.View.Pages.Circles.DopInfo.FunctionsWithData
             editSchedule.AcademicYear = yearTxb.Text;
             editSchedule.Circles.Class.ClassNumber = Convert.ToInt32(classNumberTxb.Text);
             editSchedule.Circles.Class.Letter = classLetterTxb.Text;
-            //editSchedule.Circles.Teachers.Surname = surnameTxb.Text;
-            //editSchedule.Circles.Teachers.Name = nameTxb.Text;
-            //editSchedule.Circles.Teachers.Patronymic = surnameTxb.Text;
            
             var editCircle = ConnectClass.db.Circles.FirstOrDefault(item => item.TypeOfCircle.Title == circleCmb.Text);
             editSchedule.Circles.CircTypeID = editCircle.ID;
 
-            var editTeacher = ConnectClass.db.Teachers.FirstOrDefault(item => item.fullName == teacherCmb.Text);
-            //var editTeacher = ConnectClass.db.Teachers.FirstOrDefault(item => item.Surname.Contains(teacherCmb.Text));
-            editSchedule.Circles.TeacheID = editTeacher.ID;
+            var currentTeacher = teacherCmb.SelectedItem as DB.Teachers;
+            editSchedule.Circles.TeacheID = currentTeacher.ID;
 
             ConnectClass.db.SaveChanges();
             MessageBox.Show("Редактирование прошло успешно!");

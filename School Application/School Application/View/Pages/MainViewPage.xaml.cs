@@ -16,6 +16,7 @@ using System.Data.OleDb;
 using School_Application.View.Pages.Students;
 using School_Application.View.Pages.Teachers;
 using School_Application.View.Pages.Circles;
+using School_Application.View.Pages.Competition;
 
 namespace School_Application.View.Pages
 {
@@ -47,6 +48,11 @@ namespace School_Application.View.Pages
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             NavigationService.Navigate(new CirclesMainPage());
+        }
+
+        private void competitionBtn_Click(object sender, RoutedEventArgs e)
+        {
+            NavigationService.Navigate(new CompetitionMainPage());
         }
     }
 }

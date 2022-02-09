@@ -30,7 +30,7 @@
             <Button x:Name="competitionBtn"
                     Content="Конкурсы"
                     Width="220"
-                    Height="40"/>
+                    Height="40" Click="competitionBtn_Click"/>
         </StackPanel>
     </Grid>
 </Page>
