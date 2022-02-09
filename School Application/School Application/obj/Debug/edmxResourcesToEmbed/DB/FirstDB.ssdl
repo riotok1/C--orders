@@ -6,7 +6,6 @@
     </Key>
     <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="CircTypeID" Type="int" Nullable="false" />
-    <Property Name="TeacheID" Type="int" Nullable="false" />
     <Property Name="ClassID" Type="int" Nullable="false" />
   </EntityType>
   <EntityType Name="Class">
@@ -39,7 +38,7 @@
       <PropertyRef Name="ID" />
     </Key>
     <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="WorkID" Type="int" Nullable="false" />
+    <Property Name="WorkID" Type="int" />
     <Property Name="NominationID" Type="int" />
     <Property Name="Result" Type="nvarchar" MaxLength="50" Nullable="false" />
     <Property Name="TeacherID" Type="int" Nullable="false" />
@@ -57,6 +56,7 @@
     <Property Name="HalfYear" Type="int" Nullable="false" />
     <Property Name="AcademicYear" Type="nvarchar" MaxLength="20" Nullable="false" />
     <Property Name="ClassID" Type="int" />
+    <Property Name="TeacherID" Type="int" />
   </EntityType>
   <EntityType Name="Students">
     <Key>
@@ -74,8 +74,8 @@
     </Key>
     <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="StudentID" Type="int" />
-    <Property Name="WorkName" Type="nvarchar" MaxLength="50" Nullable="false" />
-    <Property Name="Description" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="WorkName" Type="nvarchar" MaxLength="50" />
+    <Property Name="Description" Type="nvarchar(max)" />
     <Property Name="Image" Type="nvarchar(max)" Nullable="false" />
   </EntityType>
   <EntityType Name="sysdiagrams">
@@ -127,20 +127,6 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK_Circles_Teachers">
-    <End Role="Teachers" Type="Self.Teachers" Multiplicity="1">
-      <OnDelete Action="Cascade" />
-    </End>
-    <End Role="Circles" Type="Self.Circles" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="Teachers">
-        <PropertyRef Name="ID" />
-      </Principal>
-      <Dependent Role="Circles">
-        <PropertyRef Name="TeacheID" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
   <Association Name="FK_Circles_TypeOfCircle">
     <End Role="TypeOfCircle" Type="Self.TypeOfCircle" Multiplicity="1">
       <OnDelete Action="Cascade" />
@@ -184,7 +170,7 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_PaintingCompetition_StudentsWorks">
-    <End Role="StudentsWorks" Type="Self.StudentsWorks" Multiplicity="1">
+    <End Role="StudentsWorks" Type="Self.StudentsWorks" Multiplicity="0..1">
       <OnDelete Action="Cascade" />
     </End>
     <End Role="PaintingCompetition" Type="Self.PaintingCompetition" Multiplicity="*" />
@@ -234,6 +220,20 @@
       </Principal>
       <Dependent Role="Schedule">
         <PropertyRef Name="ClassID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Schedule_Teachers">
+    <End Role="Teachers" Type="Self.Teachers" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Schedule" Type="Self.Schedule" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Teachers">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Schedule">
+        <PropertyRef Name="TeacherID" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
@@ -308,10 +308,6 @@
       <End Role="Class" EntitySet="Class" />
       <End Role="Circles" EntitySet="Circles" />
     </AssociationSet>
-    <AssociationSet Name="FK_Circles_Teachers" Association="Self.FK_Circles_Teachers">
-      <End Role="Teachers" EntitySet="Teachers" />
-      <End Role="Circles" EntitySet="Circles" />
-    </AssociationSet>
     <AssociationSet Name="FK_Circles_TypeOfCircle" Association="Self.FK_Circles_TypeOfCircle">
       <End Role="TypeOfCircle" EntitySet="TypeOfCircle" />
       <End Role="Circles" EntitySet="Circles" />
@@ -338,6 +334,10 @@
     </AssociationSet>
     <AssociationSet Name="FK_Schedule_Class" Association="Self.FK_Schedule_Class">
       <End Role="Class" EntitySet="Class" />
+      <End Role="Schedule" EntitySet="Schedule" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Schedule_Teachers" Association="Self.FK_Schedule_Teachers">
+      <End Role="Teachers" EntitySet="Teachers" />
       <End Role="Schedule" EntitySet="Schedule" />
     </AssociationSet>
     <AssociationSet Name="FK_Students_Class" Association="Self.FK_Students_Class">

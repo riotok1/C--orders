@@ -29,9 +29,11 @@ namespace School_Application.DB
         public int HalfYear { get; set; }
         public string AcademicYear { get; set; }
         public Nullable<int> ClassID { get; set; }
+        public Nullable<int> TeacherID { get; set; }
     
         public virtual Circles Circles { get; set; }
         public virtual Class Class { get; set; }
+        public virtual Teachers Teachers { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Visits> Visits { get; set; }
     }

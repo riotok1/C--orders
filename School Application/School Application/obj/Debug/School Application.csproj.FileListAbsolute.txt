@@ -11,13 +11,13 @@ D:\Orders\School Application\School Application\bin\Debug\MaterialDesignColors.p
 D:\Orders\School Application\School Application\bin\Debug\MaterialDesignThemes.Wpf.pdb
 D:\Orders\School Application\School Application\bin\Debug\MaterialDesignThemes.Wpf.xml
 D:\Orders\School Application\School Application\bin\Debug\ru\EntityFramework.resources.dll
-D:\Orders\School Application\School Application\obj\Debug\School Application.csproj.AssemblyReference.cache
 D:\Orders\School Application\School Application\obj\Debug\School Application.csproj.SuggestedBindingRedirects.cache
 D:\Orders\School Application\School Application\obj\Debug\View\Pages\Circles\CirclesMainPage.g.cs
 D:\Orders\School Application\School Application\obj\Debug\View\Pages\Circles\DopInfo\CircDopInfo.g.cs
 D:\Orders\School Application\School Application\obj\Debug\View\Pages\Circles\DopInfo\FunctionsWithData\AddOrEditPage.g.cs
 D:\Orders\School Application\School Application\obj\Debug\View\Pages\Circles\DopInfo\FunctionsWithData\CircAddDataPage.g.cs
 D:\Orders\School Application\School Application\obj\Debug\View\Pages\Competition\CompetitionMainPage.g.cs
+D:\Orders\School Application\School Application\obj\Debug\View\Pages\Competition\FunctionsWithData\AddCompData.g.cs
 D:\Orders\School Application\School Application\obj\Debug\View\Pages\Students\FunctionsWithData\StudAddOrEditPage.g.cs
 D:\Orders\School Application\School Application\obj\Debug\View\Pages\Students\StudentsMainPage.g.cs
 D:\Orders\School Application\School Application\obj\Debug\View\Pages\Teachers\FunctionsWithData\TeachAddOrEditPage.g.cs
@@ -34,6 +34,7 @@ D:\Orders\School Application\School Application\obj\Debug\View\Pages\Circles\Dop
 D:\Orders\School Application\School Application\obj\Debug\View\Pages\Circles\DopInfo\FunctionsWithData\AddOrEditPage.baml
 D:\Orders\School Application\School Application\obj\Debug\View\Pages\Circles\DopInfo\FunctionsWithData\CircAddDataPage.baml
 D:\Orders\School Application\School Application\obj\Debug\View\Pages\Competition\CompetitionMainPage.baml
+D:\Orders\School Application\School Application\obj\Debug\View\Pages\Competition\FunctionsWithData\AddCompData.baml
 D:\Orders\School Application\School Application\obj\Debug\View\Pages\Students\FunctionsWithData\StudAddOrEditPage.baml
 D:\Orders\School Application\School Application\obj\Debug\View\Pages\Students\StudentsMainPage.baml
 D:\Orders\School Application\School Application\obj\Debug\View\Pages\Teachers\FunctionsWithData\TeachAddOrEditPage.baml

@@ -33,14 +33,15 @@ namespace School_Application.View.Pages.Circles.DopInfo.FunctionsWithData
             finishTimeTxb.Text = selectedItem.FinishTime;
             halfYearTxb.Text = Convert.ToString(selectedItem.HalfYear);
             yearTxb.Text = selectedItem.AcademicYear;
-            classNumberTxb.Text = Convert.ToString(selectedItem.Class.ClassNumber);
-            classLetterTxb.Text = selectedItem.Class.Letter;
 
             circleCmb.ItemsSource = ConnectClass.db.TypeOfCircle.Select(item => item.Title).ToList();
             circleCmb.SelectedItem = selectedItem.Circles.TypeOfCircle.Title;
 
             teacherCmb.ItemsSource = ConnectClass.db.Teachers.ToList();
-            teacherCmb.SelectedItem = selectedItem.Circles.Teachers;
+            teacherCmb.SelectedItem = selectedItem.Teachers;
+
+            classCmb.ItemsSource = ConnectClass.db.Class.ToList();
+            classCmb.SelectedItem = selectedItem.Class;
         }
 
         private void addOrEditBtn_Click(object sender, RoutedEventArgs e)
@@ -53,14 +54,15 @@ namespace School_Application.View.Pages.Circles.DopInfo.FunctionsWithData
             editSchedule.FinishTime = finishTimeTxb.Text;
             editSchedule.HalfYear = Convert.ToInt32(halfYearTxb.Text);
             editSchedule.AcademicYear = yearTxb.Text;
-            editSchedule.Circles.Class.ClassNumber = Convert.ToInt32(classNumberTxb.Text);
-            editSchedule.Circles.Class.Letter = classLetterTxb.Text;
            
             var editCircle = ConnectClass.db.Circles.FirstOrDefault(item => item.TypeOfCircle.Title == circleCmb.Text);
             editSchedule.Circles.CircTypeID = editCircle.ID;
 
             var currentTeacher = teacherCmb.SelectedItem as DB.Teachers;
-            editSchedule.Circles.TeacheID = currentTeacher.ID;
+            editSchedule.TeacherID = currentTeacher.ID;
+
+            var currentClass = classCmb.SelectedItem as DB.Class;
+            editSchedule.ClassID = currentClass.ID;
 
             ConnectClass.db.SaveChanges();
             MessageBox.Show("Редактирование прошло успешно!");

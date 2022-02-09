@@ -110,6 +110,7 @@
     <Compile Include="DB\Students.cs">
       <DependentUpon>FirstDB.tt</DependentUpon>
     </Compile>
+    <Compile Include="DB\StudentsPartial.cs" />
     <Compile Include="DB\StudentsWorks.cs">
       <DependentUpon>FirstDB.tt</DependentUpon>
     </Compile>
@@ -141,6 +142,9 @@
     <Compile Include="View\Pages\Competition\CompetitionMainPage.xaml.cs">
       <DependentUpon>CompetitionMainPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="View\Pages\Competition\FunctionsWithData\AddCompData.xaml.cs">
+      <DependentUpon>AddCompData.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\Pages\MainViewPage.xaml.cs">
       <DependentUpon>MainViewPage.xaml</DependentUpon>
     </Compile>
@@ -161,6 +165,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\Pages\Competition\CompetitionMainPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Pages\Competition\FunctionsWithData\AddCompData.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -247,16 +255,18 @@
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Assets\1.jpg" />
-    <Resource Include="Assets\Весенняя дорога.jpg" />
-    <Resource Include="Assets\Зимнее озеро.jpg" />
-    <Resource Include="Assets\Зимняя ночь.jpg" />
-    <Resource Include="Assets\Каменный цветок.jpg" />
-    <Resource Include="Assets\Любопытная лиса.jpg" />
-    <Resource Include="Assets\Новогодний ангел.jpg" />
-    <Resource Include="Assets\Рожденственский ангел.jpg" />
-    <Resource Include="Assets\Серебрянное копытце.jpg" />
-    <Resource Include="Assets\Снегири.jpg" />
+    <Resource Include="Images\В деревне у бабушки.png" />
+    <Resource Include="Images\Весенняя дорога.png" />
+    <Resource Include="Images\Зимнее озеро.png" />
+    <Resource Include="Images\Зимняя ночь.png" />
+    <Resource Include="Images\Каменный цветок.png" />
+    <Resource Include="Images\Любопытная лиса.png" />
+    <Resource Include="Images\Новогодний ангел.png" />
+    <Resource Include="Images\Рожденственский ангел.png" />
+    <Resource Include="Images\Серебрянное копытце.png" />
+    <Resource Include="Images\Снегири.png" />
+  </ItemGroup>
+  <ItemGroup>
     <Content Include="DB\FirstDB.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>FirstDB.edmx</DependentUpon>

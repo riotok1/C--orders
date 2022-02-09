@@ -15,7 +15,7 @@ namespace School_Application.DB
     public partial class PaintingCompetition
     {
         public int ID { get; set; }
-        public int WorkID { get; set; }
+        public Nullable<int> WorkID { get; set; }
         public Nullable<int> NominationID { get; set; }
         public string Result { get; set; }
         public int TeacherID { get; set; }

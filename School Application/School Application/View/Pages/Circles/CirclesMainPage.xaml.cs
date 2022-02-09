@@ -36,8 +36,8 @@ namespace School_Application.View.Pages.Circles
         private void searchTxb_TextChanged(object sender, TextChangedEventArgs e)
         {
             dataView.ItemsSource = ConnectClass.db.Schedule.Where(item => item.Circles.TypeOfCircle.Title.Contains(searchTxb.Text)
-            || item.Circles.Teachers.Surname.Contains(searchTxb.Text) || item.Circles.Teachers.Name.Contains(searchTxb.Text)
-            || item.Circles.Teachers.Patronymic.Contains(searchTxb.Text)).ToList();
+            || item.Teachers.Surname.Contains(searchTxb.Text) || item.Teachers.Name.Contains(searchTxb.Text)
+            || item.Teachers.Patronymic.Contains(searchTxb.Text)).ToList();
         }
 
         private void visitsBtn_Click(object sender, RoutedEventArgs e)
@@ -68,6 +68,7 @@ namespace School_Application.View.Pages.Circles
 
         private void addBtn_Click(object sender, RoutedEventArgs e)
         {
+            NavigationService.Navigate(new CircAddDataPage());
         }
 
         private void editBtn_Click(object sender, RoutedEventArgs e)

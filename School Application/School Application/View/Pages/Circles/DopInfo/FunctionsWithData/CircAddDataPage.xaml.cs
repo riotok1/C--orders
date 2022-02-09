@@ -25,7 +25,11 @@ namespace School_Application.View.Pages.Circles.DopInfo.FunctionsWithData
         {
             InitializeComponent();
 
-            circleCmb.ItemsSource = ConnectClass.db.TypeOfCircle.Select(item => item.Title).ToList();
+            circleCmb.ItemsSource = ConnectClass.db.TypeOfCircle.ToList();
+
+            teacherCmb.ItemsSource = ConnectClass.db.Teachers.ToList();
+
+            classCmb.ItemsSource = ConnectClass.db.Class.ToList();
         }
 
         private void backBtn_Click(object sender, RoutedEventArgs e)
@@ -34,10 +38,48 @@ namespace School_Application.View.Pages.Circles.DopInfo.FunctionsWithData
             GC.Collect();
         }
 
+        //private int _idCircles;
+        //private int _idTeachers;
+        //private int _idClass;
+
         private void addBtn_Click(object sender, RoutedEventArgs e)
         {
             DB.Schedule newSchedule = new DB.Schedule();
-            DB.Class newClass = new DB.Class();
+            DB.Circles newCircles = new DB.Circles();
+
+            //_idCircles = (circleCmb.SelectedItem as DB.Circles).ID;
+            //_idTeachers = (teacherCmb.SelectedItem as DB.Teachers).ID;
+            //_idClass = (classCmb.SelectedItem as DB.Class).ID;
+
+            newSchedule.Cabinet = cabinetTxb.Text;
+            newSchedule.WeekDay = weekDayTxb.Text;  
+            newSchedule.StartTime = startTimeTxb.Text;  
+            newSchedule.FinishTime = finishTimeTxb.Text;  
+            newSchedule.HalfYear = Convert.ToInt32(halfYearTxb.Text);  
+            newSchedule.AcademicYear = yearTxb.Text;
+            newSchedule.CircleID = newCircles.ID;
+
+            var currentClub = circleCmb.SelectedItem as DB.TypeOfCircle;
+            newSchedule.CircleID = currentClub.ID;
+
+            var currentTeacher = teacherCmb.SelectedItem as DB.Teachers;
+            newSchedule.TeacherID = currentTeacher.ID;
+
+            var currentClass = classCmb.SelectedItem as DB.Class;
+            newSchedule.ClassID = currentClass.ID;
+
+            newCircles.ClassID = currentClass.ID;
+            newCircles.CircTypeID = currentClub.ID;
+            //newSchedule.CircleID = _idCircles;
+            //newSchedule.ClassID = _idClass;
+            //newSchedule.TeacherID = _idTeachers;
+
+            ConnectClass.db.Circles.Add(newCircles);    
+            ConnectClass.db.Schedule.Add(newSchedule);
+            ConnectClass.db.SaveChanges();
+
+            MessageBox.Show("Данные были успешно добавлены!");
+            NavigationService.GoBack();
         }
     }
 }

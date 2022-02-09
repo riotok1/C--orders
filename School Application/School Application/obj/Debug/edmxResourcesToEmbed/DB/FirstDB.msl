@@ -6,7 +6,6 @@
         <MappingFragment StoreEntitySet="Circles">
           <ScalarProperty Name="ID" ColumnName="ID" />
           <ScalarProperty Name="CircTypeID" ColumnName="CircTypeID" />
-          <ScalarProperty Name="TeacheID" ColumnName="TeacheID" />
           <ScalarProperty Name="ClassID" ColumnName="ClassID" />
         </MappingFragment>
       </EntityTypeMapping>
@@ -62,6 +61,7 @@
           <ScalarProperty Name="HalfYear" ColumnName="HalfYear" />
           <ScalarProperty Name="AcademicYear" ColumnName="AcademicYear" />
           <ScalarProperty Name="ClassID" ColumnName="ClassID" />
+          <ScalarProperty Name="TeacherID" ColumnName="TeacherID" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

@@ -4,21 +4,20 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="2cfae5015fd14c29b8be3f60d679759b" Name="Diagram1">
-        <EntityTypeShape EntityType="SchoolDBModel.Circles" Width="1.5" PointX="3" PointY="3.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="SchoolDBModel.Class" Width="1.5" PointX="0.75" PointY="3.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="SchoolDBModel.Competition" Width="1.5" PointX="3" PointY="11.375" IsExpanded="true" />
-        <EntityTypeShape EntityType="SchoolDBModel.Nominations" Width="1.5" PointX="5.25" PointY="11.25" IsExpanded="true" />
-        <EntityTypeShape EntityType="SchoolDBModel.PaintingCompetition" Width="1.5" PointX="7.5" PointY="7" IsExpanded="true" />
-        <EntityTypeShape EntityType="SchoolDBModel.Schedule" Width="1.5" PointX="5.25" PointY="2.375" IsExpanded="true" />
-        <EntityTypeShape EntityType="SchoolDBModel.Students" Width="1.5" PointX="3" PointY="7" IsExpanded="true" />
-        <EntityTypeShape EntityType="SchoolDBModel.StudentsWorks" Width="1.5" PointX="5.25" PointY="7.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="SchoolDBModel.sysdiagrams" Width="1.5" PointX="9.75" PointY="1.25" IsExpanded="true" />
-        <EntityTypeShape EntityType="SchoolDBModel.Teachers" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="SchoolDBModel.TypeOfCircle" Width="1.5" PointX="0.75" PointY="7.625" IsExpanded="true" />
-        <EntityTypeShape EntityType="SchoolDBModel.Visits" Width="1.5" PointX="7.5" PointY="3.875" IsExpanded="true" />
+      <Diagram DiagramId="9938f1c9a34f4a498f9db072448be0d2" Name="Diagram1">
+        <EntityTypeShape EntityType="SchoolDBModel.Circles" Width="1.5" PointX="3" PointY="4.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="SchoolDBModel.Class" Width="1.5" PointX="0.75" PointY="5.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="SchoolDBModel.Competition" Width="1.5" PointX="3" PointY="12.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="SchoolDBModel.Nominations" Width="1.5" PointX="5.25" PointY="12.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="SchoolDBModel.PaintingCompetition" Width="1.5" PointX="7.5" PointY="8" IsExpanded="true" />
+        <EntityTypeShape EntityType="SchoolDBModel.Schedule" Width="1.5" PointX="5.25" PointY="3" IsExpanded="true" />
+        <EntityTypeShape EntityType="SchoolDBModel.Students" Width="1.5" PointX="3" PointY="8" IsExpanded="true" />
+        <EntityTypeShape EntityType="SchoolDBModel.StudentsWorks" Width="1.5" PointX="5.25" PointY="8.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="SchoolDBModel.sysdiagrams" Width="1.5" PointX="9.75" PointY="2.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="SchoolDBModel.Teachers" Width="1.5" PointX="3" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="SchoolDBModel.TypeOfCircle" Width="1.5" PointX="0.75" PointY="2.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="SchoolDBModel.Visits" Width="1.5" PointX="7.5" PointY="4.625" IsExpanded="true" />
         <AssociationConnector Association="SchoolDBModel.FK_Circles_Class" ManuallyRouted="false" />
-        <AssociationConnector Association="SchoolDBModel.FK_Circles_Teachers" ManuallyRouted="false" />
         <AssociationConnector Association="SchoolDBModel.FK_Circles_TypeOfCircle" ManuallyRouted="false" />
         <AssociationConnector Association="SchoolDBModel.FK_Schedule_Circles" ManuallyRouted="false" />
         <AssociationConnector Association="SchoolDBModel.FK_Schedule_Class" ManuallyRouted="false" />
@@ -27,6 +26,7 @@
         <AssociationConnector Association="SchoolDBModel.FK_PaintingCompetition_Nominations" ManuallyRouted="false" />
         <AssociationConnector Association="SchoolDBModel.FK_PaintingCompetition_StudentsWorks" ManuallyRouted="false" />
         <AssociationConnector Association="SchoolDBModel.FK_PaintingCompetition_Teachers" ManuallyRouted="false" />
+        <AssociationConnector Association="SchoolDBModel.FK_Schedule_Teachers" ManuallyRouted="false" />
         <AssociationConnector Association="SchoolDBModel.FK_Visits_Schedule" ManuallyRouted="false" />
         <AssociationConnector Association="SchoolDBModel.FK_StudentsWorks_Students" ManuallyRouted="false" />
         <AssociationConnector Association="SchoolDBModel.FK_Visits_Students" ManuallyRouted="false" />

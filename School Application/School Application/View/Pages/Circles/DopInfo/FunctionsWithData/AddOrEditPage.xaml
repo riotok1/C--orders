@@ -81,17 +81,11 @@
                     </StackPanel>
                     <StackPanel Orientation="Horizontal"
                                 Margin="0,0,0,20">
-                        <TextBlock Text="Номер класса:"
+                        <TextBlock Text="Класс:"
                                    Width="150"/>
-                        <TextBox x:Name="classNumberTxb"
-                                 Width="200"/>
-                    </StackPanel>
-                    <StackPanel Orientation="Horizontal"
-                                Margin="0,0,0,20">
-                        <TextBlock Text="Буква класса:"
-                                   Width="150"/>
-                        <TextBox x:Name="classLetterTxb"
-                                 Width="200"/>
+                        <ComboBox x:Name="classCmb"
+                                  DisplayMemberPath="fullClass"
+                                  Width="200"/>
                     </StackPanel>
                     <StackPanel Orientation="Horizontal">
                         <TextBlock Text="Преподаватель:"
@@ -100,34 +94,6 @@
                                   DisplayMemberPath="fullName"
                                   Width="200"/>
                     </StackPanel>
-                    <!--<StackPanel Orientation="Horizontal">
-                        <TextBlock Text="Преподаватель:"
-                                   FontWeight="Bold"
-                                   Width="120"/>
-                        <StackPanel VerticalAlignment="Center"
-                                    Orientation="Vertical">
-                            <StackPanel Orientation="Horizontal"
-                                        Margin="0,0,0,20">
-                                <TextBlock Text="Фамилия:"
-                                           Width="80"/>
-                                <TextBox x:Name="surnameTxb"
-                                         Width="150"/>
-                            </StackPanel>
-                            <StackPanel Orientation="Horizontal"
-                                        Margin="0,0,0,20">
-                                <TextBlock Text="Имя:"
-                                           Width="80"/>
-                                <TextBox x:Name="nameTxb"
-                                         Width="150"/>
-                            </StackPanel>
-                            <StackPanel Orientation="Horizontal">
-                                <TextBlock Text="Отчество:"
-                                           Width="80"/>
-                                <TextBox x:Name="patronymicTxb"
-                                         Width="150"/>
-                            </StackPanel>
-                        </StackPanel>
-                    </StackPanel>-->
                 </StackPanel>
             </Grid>
         </Grid>

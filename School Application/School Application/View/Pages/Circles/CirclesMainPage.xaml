@@ -54,7 +54,7 @@
                                         Binding="{Binding Circles.TypeOfCircle.Title}" 
                                         Width="*"/>
                     <DataGridTextColumn Header="Преподаватель" 
-                                        Binding="{Binding Circles.Teachers.fullName}" 
+                                        Binding="{Binding Teachers.fullName}" 
                                         Width="*" />
                 </DataGrid.Columns>
             </DataGrid>

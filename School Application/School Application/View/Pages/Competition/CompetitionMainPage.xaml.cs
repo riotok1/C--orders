@@ -1,4 +1,5 @@
 ﻿using School_Application.Classes;
+using School_Application.View.Pages.Competition.FunctionsWithData;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -29,6 +30,31 @@ namespace School_Application.View.Pages.Competition
         private void Page_Loaded(object sender, RoutedEventArgs e)
         {
             listDataView.ItemsSource = ConnectClass.db.PaintingCompetition.ToList();
+        }
+
+        private void addBtn_Click(object sender, RoutedEventArgs e)
+        {
+            NavigationService.Navigate(new AddCompData());
+        }
+
+        private void backBtn_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void editBtn_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void deleteBtn_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void dopInfoBtn_Click(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }

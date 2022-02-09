@@ -22,11 +22,9 @@ namespace School_Application.DB
     
         public int ID { get; set; }
         public int CircTypeID { get; set; }
-        public int TeacheID { get; set; }
         public int ClassID { get; set; }
     
         public virtual Class Class { get; set; }
-        public virtual Teachers Teachers { get; set; }
         public virtual TypeOfCircle TypeOfCircle { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Schedule> Schedule { get; set; }

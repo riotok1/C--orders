@@ -17,8 +17,8 @@ namespace School_Application.DB
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Teachers()
         {
-            this.Circles = new HashSet<Circles>();
             this.PaintingCompetition = new HashSet<PaintingCompetition>();
+            this.Schedule = new HashSet<Schedule>();
         }
     
         public int ID { get; set; }
@@ -27,8 +27,8 @@ namespace School_Application.DB
         public string Patronymic { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Circles> Circles { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<PaintingCompetition> PaintingCompetition { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Schedule> Schedule { get; set; }
     }
 }
