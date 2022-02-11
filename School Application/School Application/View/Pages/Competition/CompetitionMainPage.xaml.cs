@@ -1,4 +1,5 @@
 ﻿using School_Application.Classes;
+using School_Application.View.Pages.Competition.DopInfo;
 using School_Application.View.Pages.Competition.FunctionsWithData;
 using System;
 using System.Collections.Generic;
@@ -89,7 +90,10 @@ namespace School_Application.View.Pages.Competition
 
         private void dopInfoBtn_Click(object sender, RoutedEventArgs e)
         {
-
+            if (listDataView.SelectedItem != null)
+            {
+                NavigationService.Navigate(new CompDopInfoPage(listDataView.SelectedItem as DB.PaintingCompetition));
+            }
         }
 
         private void searchTxb_TextChanged(object sender, TextChangedEventArgs e)

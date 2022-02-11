@@ -1,4 +1,5 @@
-﻿using System;
+﻿using School_Application.DB;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -20,9 +21,18 @@ namespace School_Application.View.Pages.Competition.DopInfo
     /// </summary>
     public partial class CompDopInfoPage : Page
     {
-        public CompDopInfoPage()
+        public PaintingCompetition cPainting { get; set; }
+        public CompDopInfoPage(PaintingCompetition sPainting)
         {
             InitializeComponent();
+            cPainting = sPainting;
+            this.DataContext = this;
+        }
+
+        private void backBtn_Click(object sender, RoutedEventArgs e)
+        {
+            NavigationService.GoBack();
+            GC.Collect();
         }
     }
 }

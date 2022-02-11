@@ -25,6 +25,7 @@ namespace School_Application.View.Pages.Students
         public StudentsMainPage()
         {
             InitializeComponent();
+
         }
 
         private void Page_Loaded(object sender, RoutedEventArgs e)
@@ -39,8 +40,9 @@ namespace School_Application.View.Pages.Students
 
         private void searchTxb_TextChanged(object sender, TextChangedEventArgs e) //Поиск данных
         {
-            dataView.ItemsSource = ConnectClass.db.PaintingCompetition.Where(item => item.StudentsWorks.Students.Surname.Contains(searchTxb.Text) 
-            || item.StudentsWorks.Students.Name.Contains(searchTxb.Text) || item.StudentsWorks.Students.Patronymic.Contains(searchTxb.Text)).ToList();
+            dataView.ItemsSource = ConnectClass.db.Students.Where(item => item.Surname.Contains(searchTxb.Text)
+            || item.Name.Contains(searchTxb.Text) || item.Patronymic.Contains(searchTxb.Text) || item.Class.ClassNumber.ToString().Contains(searchTxb.Text) 
+            || item.Class.Letter.Contains(searchTxb.Text)).ToList();
         }
 
         private void backBtn_Click(object sender, RoutedEventArgs e) //Возврат назад

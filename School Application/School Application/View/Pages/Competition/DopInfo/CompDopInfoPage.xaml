@@ -9,6 +9,75 @@
       Title="CompDopInfoPage">
 
     <Grid>
-        
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="0.2*"/>
+        </Grid.RowDefinitions>
+
+        <Grid Grid.Row="0"
+              HorizontalAlignment="Center">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+
+            <Grid Grid.Column="0"
+                  Margin="0,0,50,0">
+                <StackPanel VerticalAlignment="Center"
+                            HorizontalAlignment="Center"
+                            Orientation="Vertical"
+                            Width="300">
+                    <Image Source="{Binding cPainting.StudentsWorks.Image}"
+                           Stretch="Fill"
+                           Height="350"
+                           Margin="0,0,0,10"/>
+                </StackPanel>
+            </Grid>
+
+            <Grid Grid.Column="1">
+                <StackPanel VerticalAlignment="Center"
+                            HorizontalAlignment="Center"
+                            Orientation="Vertical">
+                    <Label Content="{Binding cPainting.StudentsWorks.WorkName}"
+                           ContentStringFormat="Название работы: {0}"
+                           FontSize="14"
+                           FontWeight="Bold"/>
+                    <Label Content="{Binding cPainting.StudentsWorks.Description}"
+                           ContentStringFormat="Описание: {0}"
+                           FontSize="14"/>
+                    <Label Content="{Binding cPainting.Nominations.NominationName}"
+                           ContentStringFormat="Номинация: {0}"
+                           FontSize="14"/>
+                    <Label Content="{Binding cPainting.Nominations.Competition.CompName}"
+                           ContentStringFormat="Область: {0}"
+                           FontSize="14"/>
+                    <Label Content="{Binding cPainting.Nominations.Competition.Location}"
+                           ContentStringFormat="Место проведения: {0}"
+                           FontSize="14"/>
+                    <Label Content="{Binding cPainting.StudentsWorks.Students.fullStudName}"
+                           ContentStringFormat="Выполнил ученик: {0}"
+                           FontSize="14"/>
+                    <Label Content="{Binding cPainting.StudentsWorks.Students.Class.fullClass}"
+                           ContentStringFormat="Класс: {0}"
+                           FontSize="14"/>
+                    <Label Content="{Binding cPainting.Result}"
+                           ContentStringFormat="Результат: {0}"
+                           FontSize="14"/>
+                    <Label Content="{Binding cPainting.Teachers.fullName}"
+                           ContentStringFormat="Преподаватель: {0}"
+                           FontSize="14"/>
+                </StackPanel>
+            </Grid>
+        </Grid>
+
+        <Grid Grid.Row="1">
+            <StackPanel VerticalAlignment="Center"
+                        HorizontalAlignment="Center">
+                <Button x:Name="backBtn"
+                        Content="Назад"
+                        Width="120"
+                        Height="35" Click="backBtn_Click"/>
+            </StackPanel>
+        </Grid>
     </Grid>
 </Page>

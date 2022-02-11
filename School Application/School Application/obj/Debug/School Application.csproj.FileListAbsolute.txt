@@ -52,3 +52,4 @@ D:\Orders\School Application\School Application\obj\Debug\School Application.csp
 D:\Orders\School Application\School Application\obj\Debug\School Application.csproj.CopyComplete
 D:\Orders\School Application\School Application\obj\Debug\School Application.exe
 D:\Orders\School Application\School Application\obj\Debug\School Application.pdb
+D:\Orders\School Application\School Application\obj\Debug\School Application.csproj.AssemblyReference.cache

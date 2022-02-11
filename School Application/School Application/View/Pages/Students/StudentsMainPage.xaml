@@ -31,8 +31,10 @@
 
             <Grid Grid.Column="1">
                 <StackPanel VerticalAlignment="Center"
-                            Margin="0,0,20,0">
+                            HorizontalAlignment="Left"
+                            Margin="20,0,0,0">
                     <TextBox x:Name="searchTxb"
+                             Width="700"
                              FontSize="16" TextChanged="searchTxb_TextChanged"/>
                 </StackPanel>
             </Grid>
