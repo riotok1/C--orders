@@ -142,6 +142,9 @@
     <Compile Include="View\Pages\Competition\CompetitionMainPage.xaml.cs">
       <DependentUpon>CompetitionMainPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="View\Pages\Competition\DopInfo\CompDopInfoPage.xaml.cs">
+      <DependentUpon>CompDopInfoPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\Pages\Competition\FunctionsWithData\AddCompData.xaml.cs">
       <DependentUpon>AddCompData.xaml</DependentUpon>
     </Compile>
@@ -168,6 +171,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\Pages\Competition\CompetitionMainPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Pages\Competition\DopInfo\CompDopInfoPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

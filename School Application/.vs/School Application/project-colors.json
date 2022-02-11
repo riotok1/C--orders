@@ -5,6 +5,11 @@
       "ProjectGuid": "12f1e0f5-0a0d-4ef3-bc81-fdfac925e683",
       "DisplayName": "School Application",
       "ColorIndex": 0
+    },
+    "a2fe74e1-b743-11d0-ae1a-00a0c90fffc3": {
+      "ProjectGuid": "a2fe74e1-b743-11d0-ae1a-00a0c90fffc3",
+      "DisplayName": "Прочие файлы",
+      "ColorIndex": -1
     }
   },
   "NextColorIndex": 1

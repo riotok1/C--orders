@@ -30,6 +30,11 @@ namespace School_Application.View.Pages.Competition
         private void Page_Loaded(object sender, RoutedEventArgs e)
         {
             listDataView.ItemsSource = ConnectClass.db.PaintingCompetition.ToList();
+
+            if (listDataView.SelectedItem != null)
+            {
+                listDataView.SelectedItem = null;
+            }
         }
 
         private void addBtn_Click(object sender, RoutedEventArgs e)
@@ -45,9 +50,14 @@ namespace School_Application.View.Pages.Competition
 
         private void editBtn_Click(object sender, RoutedEventArgs e)
         {
-            if (true)
+            DB.PaintingCompetition editComp = (DB.PaintingCompetition)listDataView.SelectedItem;
+            if (editComp != null)
             {
-
+                NavigationService.Navigate(new EditCompPage(editComp));
+            }
+            else
+            {
+                MessageBox.Show("Выберите элемент для редактирования!");
             }
         }
 
@@ -80,6 +90,13 @@ namespace School_Application.View.Pages.Competition
         private void dopInfoBtn_Click(object sender, RoutedEventArgs e)
         {
 
+        }
+
+        private void searchTxb_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            listDataView.ItemsSource = ConnectClass.db.PaintingCompetition.Where(item => item.StudentsWorks.WorkName.Contains(searchTxb.Text) 
+            || item.Nominations.Competition.CompName.Contains(searchTxb.Text) || item.Nominations.Competition.Location.Contains(searchTxb.Text)
+            || item.Nominations.NominationName.Contains(searchTxb.Text)).ToList();
         }
     }
 }

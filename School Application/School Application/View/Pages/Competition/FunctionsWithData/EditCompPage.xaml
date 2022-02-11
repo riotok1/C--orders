@@ -4,7 +4,7 @@
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:School_Application.View.Pages.Competition.FunctionsWithData"
-      mc:Ignorable="d" 
+      mc:Ignorable="d" Loaded="Page_Loaded"
       d:DesignHeight="600" d:DesignWidth="1000"
       Title="EditCompPage">
 
@@ -27,7 +27,7 @@
                     <Image x:Name="imgLoad"
                            Width="200"
                            Height="200"
-                           Margin="0,0,0,10"/>
+                           Margin="0,0,0,10" />
                     <Button x:Name="openBtn"
                             Content="Открыть"
                             Width="120"
@@ -60,7 +60,8 @@
                         <TextBlock Text="Ученик:"
                                    FontSize="15"
                                    Width="170"/>
-                        <ComboBox x:Name="studentsCmb"
+                        <ComboBox x:Name="studentsCmb" 
+                                  DisplayMemberPath="fullStudName"
                                  Width="200"/>
                     </StackPanel>
                     <StackPanel Orientation="Horizontal"
@@ -69,7 +70,8 @@
                                    FontSize="15"
                                    Width="170"/>
                         <ComboBox x:Name="teacherCmb"
-                                 Width="200"/>
+                                 DisplayMemberPath="fullName"
+                                  Width="200"/>
                     </StackPanel>
                     <StackPanel Orientation="Horizontal"
                                 Margin="0,0,0,20">

@@ -78,6 +78,10 @@ namespace School_Application.View.Pages.Circles
             {
                 NavigationService.Navigate(new AddOrEditPage(editSchedule));
             }
+            else
+            {
+                MessageBox.Show("Выберите элемент для редактирования!");
+            }
         }
 
         private void deleteBtn_Click(object sender, RoutedEventArgs e)
