@@ -22,7 +22,6 @@ namespace School_Application.DB
     
         public int ID { get; set; }
         public int CompetitionID { get; set; }
-        public string ProjectName { get; set; }
         public string NominationName { get; set; }
     
         public virtual Competition Competition { get; set; }

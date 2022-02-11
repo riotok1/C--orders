@@ -1,0 +1,125 @@
+﻿<Page x:Class="School_Application.View.Pages.Competition.FunctionsWithData.EditCompPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:School_Application.View.Pages.Competition.FunctionsWithData"
+      mc:Ignorable="d" 
+      d:DesignHeight="600" d:DesignWidth="1000"
+      Title="EditCompPage">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="0.2*"/>
+        </Grid.RowDefinitions>
+
+        <Grid Grid.Row="0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+
+            <Grid Grid.Column="0">
+                <StackPanel VerticalAlignment="Center"
+                            HorizontalAlignment="Center"
+                            Orientation="Vertical">
+                    <Image x:Name="imgLoad"
+                           Width="200"
+                           Height="200"
+                           Margin="0,0,0,10"/>
+                    <Button x:Name="openBtn"
+                            Content="Открыть"
+                            Width="120"
+                            Height="35" Click="openBtn_Click_1"/>
+                </StackPanel>
+            </Grid>
+
+            <Grid Grid.Column="1">
+                <StackPanel VerticalAlignment="Center"
+                            HorizontalAlignment="Center"
+                            Orientation="Vertical">
+                    <StackPanel Orientation="Horizontal"
+                                Margin="0,0,0,20">
+                        <TextBlock Text="Название работы:"
+                                   FontSize="15"
+                                   Width="170"/>
+                        <TextBox x:Name="workNameTxb"
+                                 Width="200"/>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal"
+                                Margin="0,0,0,20">
+                        <TextBlock Text="Номинация:"
+                                   FontSize="15"
+                                   Width="170"/>
+                        <TextBox x:Name="nominationTxb"
+                                 Width="200"/>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal"
+                                Margin="0,0,0,20">
+                        <TextBlock Text="Ученик:"
+                                   FontSize="15"
+                                   Width="170"/>
+                        <ComboBox x:Name="studentsCmb"
+                                 Width="200"/>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal"
+                                Margin="0,0,0,20">
+                        <TextBlock Text="Преподавтель:"
+                                   FontSize="15"
+                                   Width="170"/>
+                        <ComboBox x:Name="teacherCmb"
+                                 Width="200"/>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal"
+                                Margin="0,0,0,20">
+                        <TextBlock Text="Описание работы:"
+                                   FontSize="15"
+                                   Width="170"/>
+                        <TextBox x:Name="descriptionTxb"
+                                 Width="200"/>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal"
+                                Margin="0,0,0,20">
+                        <TextBlock Text="Результат:"
+                                   FontSize="15"
+                                   Width="170"/>
+                        <TextBox x:Name="resultTxb"
+                                 Width="200"/>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal"
+                                Margin="0,0,0,20">
+                        <TextBlock Text="Область:"
+                                   FontSize="15"
+                                   Width="170"/>
+                        <TextBox x:Name="compNameTxb"
+                                 Width="200"/>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Text="Место проведения:"
+                                   FontSize="15"
+                                   Width="170"/>
+                        <TextBox x:Name="locationTxb"
+                                 Width="200"/>
+                    </StackPanel>
+                </StackPanel>
+            </Grid>
+        </Grid>
+
+        <Grid Grid.Row="1">
+            <StackPanel VerticalAlignment="Center"
+                        HorizontalAlignment="Center"
+                        Orientation="Horizontal">
+                <Button x:Name="backBtn"
+                        Content="Назад"
+                        Width="120"
+                        Height="35"
+                        Margin="0,0,20,0" Click="backBtn_Click"/>
+                <Button x:Name="editBtn"
+                        Content="Изменить"
+                        Width="120"
+                        Height="35" Click="editBtn_Click"/>
+            </StackPanel>
+        </Grid>
+    </Grid>
+</Page>

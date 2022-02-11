@@ -38,18 +38,10 @@ namespace School_Application.View.Pages.Circles.DopInfo.FunctionsWithData
             GC.Collect();
         }
 
-        //private int _idCircles;
-        //private int _idTeachers;
-        //private int _idClass;
-
         private void addBtn_Click(object sender, RoutedEventArgs e)
         {
             DB.Schedule newSchedule = new DB.Schedule();
             DB.Circles newCircles = new DB.Circles();
-
-            //_idCircles = (circleCmb.SelectedItem as DB.Circles).ID;
-            //_idTeachers = (teacherCmb.SelectedItem as DB.Teachers).ID;
-            //_idClass = (classCmb.SelectedItem as DB.Class).ID;
 
             newSchedule.Cabinet = cabinetTxb.Text;
             newSchedule.WeekDay = weekDayTxb.Text;  
@@ -70,10 +62,7 @@ namespace School_Application.View.Pages.Circles.DopInfo.FunctionsWithData
 
             newCircles.ClassID = currentClass.ID;
             newCircles.CircTypeID = currentClub.ID;
-            //newSchedule.CircleID = _idCircles;
-            //newSchedule.ClassID = _idClass;
-            //newSchedule.TeacherID = _idTeachers;
-
+            
             ConnectClass.db.Circles.Add(newCircles);    
             ConnectClass.db.Schedule.Add(newSchedule);
             ConnectClass.db.SaveChanges();

@@ -37,14 +37,14 @@ namespace School_Application.View.Pages.Teachers.FunctionsWithData
 
         private void addOrEditBtn_Click(object sender, RoutedEventArgs e)
         {
-            if (cTeacher != null)
+            if (cTeacher == null)
             {
                 ConnectClass.db.Teachers.Add(cTeacher);
                 ConnectClass.db.SaveChanges();
                 MessageBox.Show("Данные были успешно добавлены!");
                 NavigationService.GoBack();
             }
-            else if (cTeacher == null)
+            else if (cTeacher != null)
             {
                 ConnectClass.db.SaveChanges();
                 MessageBox.Show("Данные были успешно изменены!");

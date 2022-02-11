@@ -145,6 +145,9 @@
     <Compile Include="View\Pages\Competition\FunctionsWithData\AddCompData.xaml.cs">
       <DependentUpon>AddCompData.xaml</DependentUpon>
     </Compile>
+    <Compile Include="View\Pages\Competition\FunctionsWithData\EditCompPage.xaml.cs">
+      <DependentUpon>EditCompPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\Pages\MainViewPage.xaml.cs">
       <DependentUpon>MainViewPage.xaml</DependentUpon>
     </Compile>
@@ -169,6 +172,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\Pages\Competition\FunctionsWithData\AddCompData.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Pages\Competition\FunctionsWithData\EditCompPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

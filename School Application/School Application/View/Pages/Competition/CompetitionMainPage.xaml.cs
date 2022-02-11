@@ -39,17 +39,42 @@ namespace School_Application.View.Pages.Competition
 
         private void backBtn_Click(object sender, RoutedEventArgs e)
         {
-
+            NavigationService.GoBack();
+            GC.Collect();
         }
 
         private void editBtn_Click(object sender, RoutedEventArgs e)
         {
+            if (true)
+            {
 
+            }
         }
 
         private void deleteBtn_Click(object sender, RoutedEventArgs e)
         {
-
+            try
+            {
+                DB.PaintingCompetition removeComp = (DB.PaintingCompetition)listDataView.SelectedItem;
+                if (removeComp != null)
+                {
+                    if (MessageBox.Show("Вы точно хотите удалить выбранный элемент? Данные будут удалены навсегда!", "Вы уверены?", MessageBoxButton.YesNo, MessageBoxImage.Question) == MessageBoxResult.Yes)
+                    {
+                        ConnectClass.db.PaintingCompetition.Remove(removeComp);
+                        ConnectClass.db.SaveChanges();
+                        Page_Loaded(null, null);
+                        MessageBox.Show("Удаление прошло успешно!");
+                    }
+                }
+                else
+                {
+                    throw new Exception("Выберите элемент для удаления!");
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, ex.Source + " Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
         }
 
         private void dopInfoBtn_Click(object sender, RoutedEventArgs e)

@@ -33,7 +33,6 @@
         <MappingFragment StoreEntitySet="Nominations">
           <ScalarProperty Name="ID" ColumnName="ID" />
           <ScalarProperty Name="CompetitionID" ColumnName="CompetitionID" />
-          <ScalarProperty Name="ProjectName" ColumnName="ProjectName" />
           <ScalarProperty Name="NominationName" ColumnName="NominationName" />
         </MappingFragment>
       </EntityTypeMapping>

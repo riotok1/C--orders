@@ -1,5 +1,6 @@
 ﻿using Microsoft.Win32;
 using School_Application.Classes;
+using School_Application.DB;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -26,11 +27,20 @@ namespace School_Application.View.Pages.Competition.FunctionsWithData
         public AddCompData()
         {
             InitializeComponent();
+
+            teacherCmb.ItemsSource = ConnectClass.db.Teachers.ToList();
+            studentsCmb.ItemsSource = ConnectClass.db.Students.ToList();
         }
 
         OpenFileDialog imgFile = new OpenFileDialog();
 
-        private void openBtn_Click(object sender, RoutedEventArgs e)
+        private void backBtn_Click(object sender, RoutedEventArgs e)
+        {
+            NavigationService.GoBack();
+            GC.Collect();
+        }
+
+        private void openBtn_Click_1(object sender, RoutedEventArgs e)
         {
             try
             {
@@ -46,16 +56,39 @@ namespace School_Application.View.Pages.Competition.FunctionsWithData
             }
         }
 
-        private void addBtn_Click(object sender, RoutedEventArgs e)
+        private void addBtn_Click_1(object sender, RoutedEventArgs e)
         {
-            DB.StudentsWorks newWork = new DB.StudentsWorks();
+            PaintingCompetition newPainting = new PaintingCompetition();
+            Nominations newNom = new Nominations();
+            DB.Competition newComp = new DB.Competition();
+            StudentsWorks newWork = new StudentsWorks();
 
+            newPainting.Result = resultTxb.Text;
+            newPainting.WorkID = newWork.ID;
+            newPainting.NominationID = newNom.ID;
+
+            newNom.NominationName = nominationTxb.Text;
+            newNom.CompetitionID = newComp.ID;
+
+            newComp.CompName = compNameTxb.Text;
+            newComp.Location = locationTxb.Text;
+
+            var currentTeacher = teacherCmb.SelectedItem as DB.Teachers;
+            newPainting.TeacherID = currentTeacher.ID;
+
+            var currentStudent = studentsCmb.SelectedItem as DB.Students;
+            newWork.StudentID = currentStudent.ID;
+            newWork.WorkName = workNameTxb.Text;
+            newWork.Description = descriptionTxb.Text;
             newWork.Image = imgFile.FileName;
 
             ConnectClass.db.StudentsWorks.Add(newWork);
+            ConnectClass.db.Competition.Add(newComp);
+            ConnectClass.db.Nominations.Add(newNom);
+            ConnectClass.db.PaintingCompetition.Add(newPainting);
             ConnectClass.db.SaveChanges();
-            MessageBox.Show("Изображение добавлено!");
 
+            MessageBox.Show("Данные были успешно добавлены!");
             NavigationService.GoBack();
         }
     }

@@ -35,7 +35,6 @@
           </Key>
           <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="CompetitionID" Type="int" Nullable="false" />
-          <Property Name="ProjectName" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="NominationName" Type="nvarchar" MaxLength="50" Nullable="false" />
         </EntityType>
         <EntityType Name="PaintingCompetition">
@@ -404,7 +403,6 @@
           </Key>
           <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="CompetitionID" Type="Int32" Nullable="false" />
-          <Property Name="ProjectName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="NominationName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
           <NavigationProperty Name="Competition" Relationship="Self.FK_Nominations_Competition" FromRole="Nominations" ToRole="Competition" />
           <NavigationProperty Name="PaintingCompetition" Relationship="Self.FK_PaintingCompetition_Nominations" FromRole="Nominations" ToRole="PaintingCompetition" />
@@ -788,7 +786,6 @@
               <MappingFragment StoreEntitySet="Nominations">
                 <ScalarProperty Name="ID" ColumnName="ID" />
                 <ScalarProperty Name="CompetitionID" ColumnName="CompetitionID" />
-                <ScalarProperty Name="ProjectName" ColumnName="ProjectName" />
                 <ScalarProperty Name="NominationName" ColumnName="NominationName" />
               </MappingFragment>
             </EntityTypeMapping>

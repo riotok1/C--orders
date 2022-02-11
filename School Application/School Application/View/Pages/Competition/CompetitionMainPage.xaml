@@ -66,12 +66,14 @@
                                 <StackPanel VerticalAlignment="Center"
                                         Orientation="Vertical">
                                     <Label Content="{Binding StudentsWorks.WorkName}"
-                                       ContentStringFormat="Название работы: {0}"
+                                       ContentStringFormat="Название проекта: {0}"
                                            FontWeight="Bold"/>
-                                    <Label Content="{Binding StudentsWorks.Students.fullStudName}"
-                                       ContentStringFormat="Ученик: {0}"/>
-                                    <Label Content="{Binding StudentsWorks.Students.Class.fullClass}"
-                                       ContentStringFormat="Класс: {0}"/>
+                                    <Label Content="{Binding Nominations.Competition.CompName}"
+                                       ContentStringFormat="Область: {0}"/>
+                                    <Label Content="{Binding Nominations.Competition.Location}"
+                                       ContentStringFormat="Место проведения: {0}"/>
+                                    <Label Content="{Binding Nominations.NominationName}"
+                                       ContentStringFormat="Номинация: {0}"/>
                                 </StackPanel>
                             </Grid>
                         </Grid>

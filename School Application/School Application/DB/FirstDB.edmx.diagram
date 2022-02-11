@@ -4,11 +4,11 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="9938f1c9a34f4a498f9db072448be0d2" Name="Diagram1">
+      <Diagram DiagramId="1fc00081eecb457da746dd34c069f63e" Name="Diagram1">
         <EntityTypeShape EntityType="SchoolDBModel.Circles" Width="1.5" PointX="3" PointY="4.25" IsExpanded="true" />
         <EntityTypeShape EntityType="SchoolDBModel.Class" Width="1.5" PointX="0.75" PointY="5.25" IsExpanded="true" />
         <EntityTypeShape EntityType="SchoolDBModel.Competition" Width="1.5" PointX="3" PointY="12.375" IsExpanded="true" />
-        <EntityTypeShape EntityType="SchoolDBModel.Nominations" Width="1.5" PointX="5.25" PointY="12.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="SchoolDBModel.Nominations" Width="1.5" PointX="5.25" PointY="12.25" IsExpanded="true" />
         <EntityTypeShape EntityType="SchoolDBModel.PaintingCompetition" Width="1.5" PointX="7.5" PointY="8" IsExpanded="true" />
         <EntityTypeShape EntityType="SchoolDBModel.Schedule" Width="1.5" PointX="5.25" PointY="3" IsExpanded="true" />
         <EntityTypeShape EntityType="SchoolDBModel.Students" Width="1.5" PointX="3" PointY="8" IsExpanded="true" />
