@@ -6,7 +6,7 @@
       xmlns:local="clr-namespace:School_Application.View.Pages.Students.FunctionsWithData"
       mc:Ignorable="d" Loaded="Page_Loaded"
       d:DesignHeight="600" d:DesignWidth="1000"
-      Title="StudAddOrEditPage">
+      Title="Работа с данными об учениках">
 
     <Grid>
         <Grid.RowDefinitions>

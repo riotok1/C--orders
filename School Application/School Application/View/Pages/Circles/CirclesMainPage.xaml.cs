@@ -109,5 +109,39 @@ namespace School_Application.View.Pages.Circles
                 MessageBox.Show(ex.Message, ex.Source + " Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
+
+        private void wordBtn_Click(object sender, RoutedEventArgs e)
+        {
+            var word = new Microsoft.Office.Interop.Word.Application();
+
+            try
+            {
+                var document = word.Documents.Add();
+                var paragrah = word.ActiveDocument.Paragraphs.Add();
+                var tableRange = paragrah.Range;
+                var dishList = ConnectClass.db.Schedule.ToList();
+                var table = document.Tables.Add(tableRange, dishList.Count, 2);
+                table.Borders.Enable = 1;
+                table.Cell(1, 1).Range.Text = "Название кружка";
+                table.Cell(1, 2).Range.Text = "Преподаватель";
+
+                int i = 2;
+                foreach (var item in dishList)
+                {
+                    table.Cell(i, 1).Range.Text = item.Circles.TypeOfCircle.Title;
+                    table.Cell(i, 2).Range.Text = item.Teachers.fullName;
+                    i++;
+                }
+                document.SaveAs2(@"D:\clubs.docx");
+                document.Close(Microsoft.Office.Interop.Word.WdSaveOptions.wdDoNotSaveChanges);
+                word.Quit(Microsoft.Office.Interop.Word.WdSaveOptions.wdDoNotSaveChanges);
+                MessageBox.Show("Сохранение прошло успешно!", "Сохранено!", MessageBoxButton.OK, MessageBoxImage.Information);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, ex.Source + " выдал исключение!", MessageBoxButton.OK, MessageBoxImage.Error);
+                word.Quit(Microsoft.Office.Interop.Word.WdSaveOptions.wdDoNotSaveChanges);
+            }
+        }
     }
 }

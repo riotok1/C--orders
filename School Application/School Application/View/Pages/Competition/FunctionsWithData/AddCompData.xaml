@@ -6,7 +6,7 @@
       xmlns:local="clr-namespace:School_Application.View.Pages.Competition.FunctionsWithData"
       mc:Ignorable="d" 
       d:DesignHeight="600" d:DesignWidth="1000"
-      Title="AddCompData">
+      Title="Добавление данных о кружке">
 
     <Grid>
         <Grid.RowDefinitions>
@@ -91,7 +91,7 @@
                     </StackPanel>
                     <StackPanel Orientation="Horizontal"
                                 Margin="0,0,0,20">
-                        <TextBlock Text="Область:"
+                        <TextBlock Text="Область конкурса:"
                                    FontSize="15"
                                    Width="170"/>
                         <TextBox x:Name="compNameTxb"

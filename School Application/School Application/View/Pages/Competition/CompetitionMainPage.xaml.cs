@@ -1,4 +1,5 @@
-﻿using School_Application.Classes;
+﻿using Microsoft.Office.Interop.Excel;
+using School_Application.Classes;
 using School_Application.View.Pages.Competition.DopInfo;
 using School_Application.View.Pages.Competition.FunctionsWithData;
 using System;
@@ -15,13 +16,14 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using Exel = Microsoft.Office.Interop.Excel;
 
 namespace School_Application.View.Pages.Competition
 {
     /// <summary>
     /// Логика взаимодействия для CompetitionMainPage.xaml
     /// </summary>
-    public partial class CompetitionMainPage : Page
+    public partial class CompetitionMainPage : System.Windows.Controls.Page
     {
         public CompetitionMainPage()
         {
@@ -102,5 +104,44 @@ namespace School_Application.View.Pages.Competition
             || item.Nominations.Competition.CompName.Contains(searchTxb.Text) || item.Nominations.Competition.Location.Contains(searchTxb.Text)
             || item.Nominations.NominationName.Contains(searchTxb.Text)).ToList();
         }
+
+        private void wordBtn_Click(object sender, RoutedEventArgs e)
+        {
+            var word = new Microsoft.Office.Interop.Word.Application();
+
+            try
+            {
+                var document = word.Documents.Add();
+                var paragrah = word.ActiveDocument.Paragraphs.Add();
+                var tableRange = paragrah.Range;
+                var dishList = ConnectClass.db.PaintingCompetition.ToList();
+                var table = document.Tables.Add(tableRange, dishList.Count, 4);
+                table.Borders.Enable = 1;
+                table.Cell(1, 1).Range.Text = "Название проекта";
+                table.Cell(1, 2).Range.Text = "Область конкурса";
+                table.Cell(1, 3).Range.Text = "Место проведения";
+                table.Cell(1, 4).Range.Text = "Номинация";
+
+                int i = 2;
+                foreach (var item in dishList)
+                {
+                    table.Cell(i, 1).Range.Text = item.StudentsWorks.WorkName;
+                    table.Cell(i, 2).Range.Text = item.Nominations.Competition.CompName;
+                    table.Cell(i, 3).Range.Text = item.Nominations.Competition.Location;
+                    table.Cell(i, 4).Range.Text = item.Nominations.NominationName;
+                    i++;
+                }
+                document.SaveAs2(@"D:\competition.docx");
+                document.Close(Microsoft.Office.Interop.Word.WdSaveOptions.wdDoNotSaveChanges);
+                word.Quit(Microsoft.Office.Interop.Word.WdSaveOptions.wdDoNotSaveChanges);
+                MessageBox.Show("Сохранение прошло успешно!", "Сохранено!", MessageBoxButton.OK, MessageBoxImage.Information);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, ex.Source + " выдал исключение!", MessageBoxButton.OK, MessageBoxImage.Error);
+                word.Quit(Microsoft.Office.Interop.Word.WdSaveOptions.wdDoNotSaveChanges);
+            }
+        }
+
     }
 }

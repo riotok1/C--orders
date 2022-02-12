@@ -6,7 +6,7 @@
       xmlns:local="clr-namespace:School_Application.View.Pages.Competition"
       mc:Ignorable="d" Loaded="Page_Loaded"
       d:DesignHeight="600" d:DesignWidth="1000"
-      Title="CompetitionMainPage">
+      Title="Список конкурсов">
 
     <Grid>
         <Grid.RowDefinitions>
@@ -46,7 +46,7 @@
         </Grid>
 
         <Grid Grid.Row="1">
-            <ListView x:Name="listDataView">
+            <ListView x:Name="listDataView" AutomationProperties.IsColumnHeader="True">
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <Grid>
@@ -69,7 +69,7 @@
                                        ContentStringFormat="Название проекта: {0}"
                                            FontWeight="Bold"/>
                                     <Label Content="{Binding Nominations.Competition.CompName}"
-                                       ContentStringFormat="Область: {0}"/>
+                                       ContentStringFormat="Область конкурса: {0}"/>
                                     <Label Content="{Binding Nominations.Competition.Location}"
                                        ContentStringFormat="Место проведения: {0}"/>
                                     <Label Content="{Binding Nominations.NominationName}"
@@ -118,7 +118,8 @@
                            FontSize="15"
                            Width="70"/>
                 <Button x:Name="wordBtn"
-                        Content="WORD"/>
+                        Content="WORD" 
+                        Click="wordBtn_Click"/>
             </StackPanel>
         </Grid>
     </Grid>

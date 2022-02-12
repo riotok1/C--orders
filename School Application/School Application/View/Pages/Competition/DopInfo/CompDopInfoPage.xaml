@@ -6,7 +6,7 @@
       xmlns:local="clr-namespace:School_Application.View.Pages.Competition.DopInfo"
       mc:Ignorable="d" 
       d:DesignHeight="600" d:DesignWidth="1000"
-      Title="CompDopInfoPage">
+      Title="Дополнительная информация о конкурсе">
 
     <Grid>
         <Grid.RowDefinitions>
@@ -15,6 +15,7 @@
         </Grid.RowDefinitions>
 
         <Grid Grid.Row="0"
+              x:Name="mainGrid"
               HorizontalAlignment="Center">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*"/>
@@ -49,7 +50,7 @@
                            ContentStringFormat="Номинация: {0}"
                            FontSize="14"/>
                     <Label Content="{Binding cPainting.Nominations.Competition.CompName}"
-                           ContentStringFormat="Область: {0}"
+                           ContentStringFormat="Область конкурса: {0}"
                            FontSize="14"/>
                     <Label Content="{Binding cPainting.Nominations.Competition.Location}"
                            ContentStringFormat="Место проведения: {0}"
@@ -72,11 +73,17 @@
 
         <Grid Grid.Row="1">
             <StackPanel VerticalAlignment="Center"
-                        HorizontalAlignment="Center">
+                        HorizontalAlignment="Center"
+                        Orientation="Horizontal">
                 <Button x:Name="backBtn"
                         Content="Назад"
                         Width="120"
-                        Height="35" Click="backBtn_Click"/>
+                        Height="35" 
+                        Margin="0,0,20,0" Click="backBtn_Click"/>
+                <Button x:Name="pdfBtn"
+                        Content="Печать"
+                        Width="120"
+                        Height="35" Click="pdfBtn_Click"/>
             </StackPanel>
         </Grid>
     </Grid>

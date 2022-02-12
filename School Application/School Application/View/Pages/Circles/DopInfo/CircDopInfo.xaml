@@ -6,7 +6,7 @@
       xmlns:local="clr-namespace:School_Application.View.Pages.Circles.DopInfo"
       mc:Ignorable="d" Loaded="Page_Loaded"
       d:DesignHeight="600" d:DesignWidth="1000"
-      Title="CircDopInfo">
+      Title="Подробная информация о кружке">
 
     <Grid>
         <Grid.RowDefinitions>
@@ -15,49 +15,52 @@
         </Grid.RowDefinitions>
 
         <Grid Grid.Row="0">
-            <ListView x:Name="listDataView">
-                <ListView.ItemTemplate>
-                    <DataTemplate>
-                        <StackPanel Orientation="Vertical"
-                                        VerticalAlignment="Center">
-                            <Label Content="{Binding Circles.TypeOfCircle.Title}"
-                                   ContentStringFormat="Кружок: {0}"
-                                   FontSize="15"
-                                   FontWeight="Bold"/>
-                            <Label Content="{Binding Cabinet}"
-                                   ContentStringFormat="Кабинеты: {0}"
-                                   FontSize="14"/>
-                            <Label Content="{Binding WeekDay}"
-                                   ContentStringFormat="День проведения: {0}"
-                                   FontSize="14"/>
-                            <Label Content="{Binding StartTime}"
-                                   ContentStringFormat="Время начала: {0}"
-                                   FontSize="14"/>
-                            <Label Content="{Binding FinishTime}"
-                                   ContentStringFormat="Время окончания: {0}"
-                                   FontSize="14"/>
-                            <Label Content="{Binding HalfYear}"
-                                   ContentStringFormat="Полугодие: {0}"
-                                   FontSize="14"/>
-                            <Label Content="{Binding AcademicYear}"
-                                   ContentStringFormat="Учебный год: {0}"
-                                   FontSize="14"/>
-                            <Label Content="{Binding Class.fullClass}"
-                                   ContentStringFormat="Класс: {0}"
-                                   FontSize="14"/>
-                        </StackPanel>
-                    </DataTemplate>
-                </ListView.ItemTemplate>
-            </ListView>
+            <DataGrid x:Name="dataView"
+                      AutoGenerateColumns="False"
+                      IsReadOnly="True">
+                <DataGrid.Columns>
+                    <DataGridTextColumn Header="Кружок"
+                                        Width="*"
+                                        Binding="{Binding Circles.TypeOfCircle.Title}"/>
+                    <DataGridTextColumn Header="Кабинет"
+                                        Width="*"
+                                        Binding="{Binding Cabinet}"/>
+                    <DataGridTextColumn Header="День проведения"
+                                        Width="*"
+                                        Binding="{Binding WeekDay}"/>
+                    <DataGridTextColumn Header="Время начала"
+                                        Width="*"
+                                        Binding="{Binding StartTime}"/>
+                    <DataGridTextColumn Header="Время окончания"
+                                        Width="*"
+                                        Binding="{Binding FinishTime}"/>
+                    <DataGridTextColumn Header="Полугодие"
+                                        Width="*"
+                                        Binding="{Binding HalfYear}"/>
+                    <DataGridTextColumn Header="Учебный год"
+                                        Width="*"
+                                        Binding="{Binding AcademicYear}"/>
+                    <DataGridTextColumn Header="Класс"
+                                        Width="*"
+                                        Binding="{Binding Class.fullClass}"/>
+                </DataGrid.Columns>
+            </DataGrid>
         </Grid>
 
         <Grid Grid.Row="1">
             <StackPanel VerticalAlignment="Center"
-                        HorizontalAlignment="Center">
+                        HorizontalAlignment="Center"
+                        Orientation="Horizontal">
                 <Button x:Name="backBtn"
                         Content="Назад"
                         Width="120"
-                        Height="35" Click="backBtn_Click"/>
+                        Height="35" 
+                        Margin="0,0,20,0" Click="backBtn_Click"/>
+                <Button x:Name="exceBtn"
+                        Content="Excel"
+                        Width="120"
+                        Height="35" 
+                        Click="exceBtn_Click"/>
             </StackPanel>
         </Grid>
     </Grid>

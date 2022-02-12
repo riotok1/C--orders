@@ -6,7 +6,7 @@
       xmlns:local="clr-namespace:School_Application.View.Pages.Circles.DopInfo.FunctionsWithData"
       mc:Ignorable="d" 
       d:DesignHeight="600" d:DesignWidth="1000"
-      Title="CircAddDataPage">
+      Title="Добавление данных о кружке">
 
     <Grid>
         <Grid.RowDefinitions>

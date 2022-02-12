@@ -34,5 +34,22 @@ namespace School_Application.View.Pages.Competition.DopInfo
             NavigationService.GoBack();
             GC.Collect();
         }
+
+        private void pdfBtn_Click(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                this.IsEnabled = false;
+                PrintDialog printDialog = new PrintDialog();
+                if (printDialog.ShowDialog() == true)
+                {
+                    printDialog.PrintVisual(mainGrid, "invoice");
+                }
+            }
+            finally
+            {
+                this.IsEnabled = true;
+            }
+        }
     }
 }

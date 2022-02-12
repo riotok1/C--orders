@@ -6,7 +6,7 @@
       xmlns:local="clr-namespace:School_Application.View.Pages.Circles"
       mc:Ignorable="d" Loaded="Page_Loaded"
       d:DesignHeight="600" d:DesignWidth="1000"
-      Title="CirclesMainPage">
+      Title="Список кружков">
 
     <Grid>
         <Grid.RowDefinitions>
@@ -96,7 +96,8 @@
                            FontSize="15"
                            Width="70"/>
                 <Button x:Name="wordBtn"
-                        Content="WORD"/>
+                        Content="WORD" 
+                        Click="wordBtn_Click"/>
             </StackPanel>
         </Grid>
     </Grid>

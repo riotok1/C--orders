@@ -1,18 +1,19 @@
-D:\Orders\School Application\School Application\bin\Debug\EntityFramework.xml
-D:\Orders\School Application\School Application\bin\Debug\ru\EntityFramework.resources.dll
-D:\Orders\School Application\School Application\obj\Debug\School Application_Content.g.cs
+D:\Orders\School Application\School Application\bin\Debug\MaterialDesignThemes.Wpf.dll
 D:\Orders\School Application\School Application\bin\Debug\School Application.exe.config
 D:\Orders\School Application\School Application\bin\Debug\School Application.exe
 D:\Orders\School Application\School Application\bin\Debug\School Application.pdb
 D:\Orders\School Application\School Application\bin\Debug\EntityFramework.dll
 D:\Orders\School Application\School Application\bin\Debug\EntityFramework.SqlServer.dll
 D:\Orders\School Application\School Application\bin\Debug\MaterialDesignColors.dll
-D:\Orders\School Application\School Application\bin\Debug\MaterialDesignThemes.Wpf.dll
+D:\Orders\School Application\School Application\bin\Debug\EntityFramework.xml
 D:\Orders\School Application\School Application\bin\Debug\EntityFramework.SqlServer.xml
 D:\Orders\School Application\School Application\bin\Debug\MaterialDesignColors.pdb
 D:\Orders\School Application\School Application\bin\Debug\MaterialDesignThemes.Wpf.pdb
 D:\Orders\School Application\School Application\bin\Debug\MaterialDesignThemes.Wpf.xml
+D:\Orders\School Application\School Application\bin\Debug\ru\EntityFramework.resources.dll
+D:\Orders\School Application\School Application\bin\Debug\ru\EntityFramework.SqlServer.resources.dll
 D:\Orders\School Application\School Application\obj\Debug\School Application.csproj.SuggestedBindingRedirects.cache
+D:\Orders\School Application\School Application\obj\Debug\School Application.csproj.ResolveComReference.cache
 D:\Orders\School Application\School Application\obj\Debug\View\Pages\Circles\CirclesMainPage.g.cs
 D:\Orders\School Application\School Application\obj\Debug\View\Pages\Circles\DopInfo\CircDopInfo.g.cs
 D:\Orders\School Application\School Application\obj\Debug\View\Pages\Circles\DopInfo\FunctionsWithData\AddOrEditPage.g.cs
@@ -28,6 +29,7 @@ D:\Orders\School Application\School Application\obj\Debug\View\Pages\Teachers\Te
 D:\Orders\School Application\School Application\obj\Debug\View\Windows\MainWindow.g.cs
 D:\Orders\School Application\School Application\obj\Debug\View\Pages\MainViewPage.g.cs
 D:\Orders\School Application\School Application\obj\Debug\App.g.cs
+D:\Orders\School Application\School Application\obj\Debug\School Application_Content.g.cs
 D:\Orders\School Application\School Application\obj\Debug\School Application_MarkupCompile.cache
 D:\Orders\School Application\School Application\obj\Debug\School Application_MarkupCompile.lref
 D:\Orders\School Application\School Application\obj\Debug\App.baml

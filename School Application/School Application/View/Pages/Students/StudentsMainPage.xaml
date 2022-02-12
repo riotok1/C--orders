@@ -90,7 +90,11 @@
                            FontSize="15"
                            Width="70"/>
                 <Button x:Name="wordBtn"
-                        Content="WORD"/>
+                        Content="WORD" 
+                        Margin="0,0,10,0" Click="wordBtn_Click"/>
+                <Button x:Name="excelBtn"
+                        Content="Excel" 
+                         Click="excelBtn_Click"/>
             </StackPanel>
         </Grid>
     </Grid>
