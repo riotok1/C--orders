@@ -1,0 +1,46 @@
+﻿<Page x:Class="ServicesApplication.View.Pages.User.MyServicesPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:ServicesApplication.View.Pages.User"
+      mc:Ignorable="d" Loaded="Page_Loaded"
+      d:DesignHeight="600" d:DesignWidth="900"
+      Title="MyServicesPage">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="0.2*"/>
+        </Grid.RowDefinitions>
+
+        <Grid Grid.Row="0">
+            <DataGrid x:Name="dataViewGrid"
+                      IsReadOnly="True"
+                      AutoGenerateColumns="False">
+                <DataGrid.Columns>
+                    <DataGridTextColumn Header="Услуга" Binding="{Binding ServiceName}" Width="*"/>
+                    <DataGridTextColumn Header="Длительность" Binding="{Binding ServiceTiiming}" Width="*"/>
+                    <DataGridTextColumn Header="Дата проведения" Binding="{Binding ServiceDate, StringFormat=dd.MM.yyyy}" Width="*"/>
+                    <DataGridTextColumn Header="Стоимость" Binding="{Binding Price}" Width="*"/>
+                    <DataGridTextColumn Header="Описание" Binding="{Binding Description}" Width="*"/>
+                </DataGrid.Columns>
+            </DataGrid>
+        </Grid>
+
+        <Grid Grid.Row="1">
+            <StackPanel VerticalAlignment="Center"
+                        HorizontalAlignment="Center"
+                        Orientation="Horizontal">
+                <Button x:Name="backBtn"
+                        Content="Назад"
+                        Width="120"
+                        Height="35"
+                        Margin="0,0,20,0" Click="backBtn_Click"/>
+                <Button x:Name="deleteBtn"
+                        Content="Отказаться от услуги"
+                        Height="35" Click="deleteBtn_Click"/>
+            </StackPanel>
+        </Grid>
+    </Grid>
+</Page>
